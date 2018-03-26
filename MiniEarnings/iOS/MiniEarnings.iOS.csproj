@@ -132,6 +132,11 @@
     <Compile Include="CustomControls\EditorFrameRenderer.cs" />
     <Compile Include="CustomControls\ImageCircleRender.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RupeeOne.png" />
+    <BundleResource Include="Resources\RupeeThree.png" />
+    <BundleResource Include="Resources\RupeeTwo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets')" />
 </Project>

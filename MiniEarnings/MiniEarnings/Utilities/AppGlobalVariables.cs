@@ -11,15 +11,21 @@ namespace MiniEarnings
        
         public static string fontFamilyReg = "MontseRegular";
         public static string fontFamilyLight = "MontserratLight";
-        //public static string fontFamilyMed = "MontseMedium";
         public static string fontFamilyBold = "MontserratBold";
 
         public static double smallFont = (BaseContentPage.screenWidth * 3.0) / 100;//3.5) / 100;
         public static double largeFont = (BaseContentPage.screenWidth * 6.2) / 100;//6.5) / 100;
         public static double veryLargeFont = (BaseContentPage.screenWidth * 7.2) / 100;//7.5) / 100;
 
-        public static Color BackGroundColor = Color.FromHex("#f3f3f3");
+        public static double headingTitleSize = (BaseContentPage.screenWidth * 6.2) / 100;
 
+        public static Color BackGroundColor = Color.Orange;
+
+        public static Color HeadingTextColor = Color.White;
+
+        public static Color TextColor = Color.Black;
+
+        /*
         public static Color ReddishPink = Color.FromHex("#f95e78");
         public static Color orange = Color.FromHex("#F78F1E");
         public static Color btnOrange = Color.FromHex("#f7941f");
@@ -29,20 +35,17 @@ namespace MiniEarnings
         public static Color black = Color.FromHex("#2C2C2C");
         public static Color White = Color.FromHex("#FFFFFF");
         public static Color lightBlack = Color.FromHex("#585858");
-
         public static Color lightMarron = Color.FromHex("##850029");
         public static Color darkMarron = Color.FromHex("#4B0000");
         public static Color viewlightMarron = Color.FromHex("#6D0018");
-
         public static Color lightBlue = Color.FromHex("#004491");
-
         public static Color fontVeryThick = Color.FromHex("#303030");
         public static Color fontMediumThick = Color.FromHex("#505050");
         public static Color fontLessThick = Color.FromHex("#707070");
-
         public static Color lightGray = Color.FromHex("#F5F5F5");
         public static Color underLineColor = Color.FromHex("#999999");
-
+        */
+        /*
         #region for gradient Colors
         public static Color violetShadeLight = Color.FromHex("#5e6ae4");
         public static Color violetShadeDark = Color.FromHex("#9144e7");
@@ -53,7 +56,7 @@ namespace MiniEarnings
         public static Color orangeShadeLight = Color.FromHex("#f9a85d");
         public static Color orangeShadeDark = Color.FromHex("#f95e78");
         #endregion
-
+        */
 
 
         public static string NetWorkMsg = "Please check your network access";
