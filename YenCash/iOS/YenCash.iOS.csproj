@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.props')" />
   <PropertyGroup>
@@ -102,8 +102,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -117,6 +121,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\CustomBadgeRenderer.cs" />
+    <Compile Include="CustomControls\CustomButtonRender.cs" />
+    <Compile Include="CustomControls\CustomDatePickerRender.cs" />
+    <Compile Include="CustomControls\CustomEntryRenderer.cs" />
+    <Compile Include="CustomControls\CustomGradientRoundEdgeViewRender.cs" />
+    <Compile Include="CustomControls\CustomLabelRender.cs" />
+    <Compile Include="CustomControls\CustomPickerRender.cs" />
+    <Compile Include="CustomControls\EditorFrameRenderer.cs" />
+    <Compile Include="CustomControls\ImageCircleRender.cs" />
+    <None Include="CustomControls\LoginRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
   </ItemGroup>

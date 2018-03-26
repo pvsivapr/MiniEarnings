@@ -22,6 +22,27 @@ namespace YenCash.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
+            #region For screen Height & Width
+
+            var pixels = Resources.DisplayMetrics.WidthPixels;
+            var scale = Resources.DisplayMetrics.Density;
+
+            var dps = (double)((pixels - 0.5f) / scale);
+
+            var ScreenWidth = (int)dps;
+
+            BaseContentPage.screenWidth = ScreenWidth;
+
+            RequestedOrientation = ScreenOrientation.Portrait;
+
+            pixels = Resources.DisplayMetrics.HeightPixels;
+            dps = (double)((pixels - 0.5f) / scale);
+
+            var ScreenHeight = (int)dps;
+            BaseContentPage.screenHeight = ScreenHeight;
+
+            #endregion
+
             LoadApplication(new App());
         }
     }
