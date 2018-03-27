@@ -1,51 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<local:BaseContentPage 
+<ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:YenCash;assembly=YenCash"
     x:Class="YenCash.UserLogin">
 
-    <!--<ContentPage.Resources>
+    <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="PageBackgroundColor">Yellow</Color>
-            <Color x:Key="HeadingTextColor">Black</Color>
-            <Color x:Key="NormalTextColor">Blue</Color>
-            <Style x:Key="LabelPageHeadingStyle" TargetType="Label">
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="HorizontalOptions" Value="Center" />
+            <Style x:Key="LabelEntryInfo" TargetType="Label">
+                <!--<Setter Property="FontAttributes" Value="Bold" />-->
                 <Setter Property="TextColor" Value="{StaticResource HeadingTextColor}" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="EntryInputData" TargetType="Entry">
+                <!--<Setter Property="FontAttributes" Value="Bold" />-->
+                <Setter Property="TextColor" Value="{StaticResource HeadingTextColor}" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource HeadingTextColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+            <Style x:Key="BoxUline" TargetType="BoxView">
+                <Setter Property="Color" Value="{StaticResource HeadingTextColor}" />
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="End" />
             </Style>
         </ResourceDictionary>
-    </ContentPage.Resources>-->
+    </ContentPage.Resources>
 
-    <AbsoluteLayout x:Name="AbsHolder" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="4*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <local:CustomLabel>                        
-                    </local:CustomLabel>
-                </Grid>
-            </StackLayout>
-            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,0.9" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                
-                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+            <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+    <AbsoluteLayout x:Name="AbsHolder" BackgroundColor="{x:StaticResource PageBackgroundColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <!--<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <local:CustomLabel Text="User Login" Grid.Row="0" Grid.Column="1">
+                </local:CustomLabel>
+            </Grid>
+        </StackLayout>-->
+        
+        <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid x:Name="gridDataInput" Padding="10,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="0.4*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <local:CustomLabel x:Name="labelUserEmail" Text="Enter User Email" IsVisible="false" Grid.Row="0" Grid.Column="0" Style="{x:StaticResource LabelEntryInfo}">
+                            </local:CustomLabel>
+                            <BoxView Grid.Row="0" Grid.Column="0" Style="{x:StaticResource BoxUline}">
+                            </BoxView>
+                            <local:CustomEntry x:Name="entryUserEmail" Placeholder="Enter User Email" Grid.Row="0" Grid.Column="0" Style="{x:StaticResource EntryInputData}">
+                            </local:CustomEntry>
+
+                            <local:CustomLabel x:Name="labelUserPassword" Text="Enter User Password" IsVisible="false" Grid.Row="1" Grid.Column="0" Style="{x:StaticResource LabelEntryInfo}">
+                            </local:CustomLabel>
+                            <BoxView Grid.Row="1" Grid.Column="0" Style="{x:StaticResource BoxUline}">
+                            </BoxView>
+                            <local:CustomEntry x:Name="entryUserPassword" Placeholder="Enter User Password" IsPassword="true" IsCustomPassword="true" Grid.Row="1" Grid.Column="0" Style="{x:StaticResource EntryInputData}">
+                            </local:CustomEntry>
+
+                            <local:CustomButton x:Name="loginButton" Text="LOG IN" TextColor="{x:StaticResource AppTextColor}" Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="LoginButtonClicked">
+                            </local:CustomButton>
+
+                            <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="End">
+
+                                <BoxView Color="{StaticResource HeadingTextColor}" HeightRequest="1" WidthRequest="30" HorizontalOptions="End" VerticalOptions="Center"></BoxView>
+                                <local:CustomLabel Text="Forget Password" TextColor="{StaticResource HeadingTextColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                </local:CustomLabel>
+                                <BoxView Color="{StaticResource HeadingTextColor}" HeightRequest="1" WidthRequest="30" HorizontalOptions="Start" VerticalOptions="Center"></BoxView>
+                                
+                            </StackLayout>
                             
-                        </StackLayout>
-                    </StackLayout>                    
-                </ScrollView>
-                
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                        <local:CustomLabel Text="Didn't have an account ?" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                        </local:CustomLabel>
+                        <!--<local:CustomLabel Text="Register">
+                        </local:CustomLabel>-->
+                        <local:CustomButton x:Name="btnRegister" Text="Register" HorizontalOptions="End" VerticalOptions="Center" Clicked="RegisterButtonClicked">
+                        </local:CustomButton>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+
+        <StackLayout x:Name="stackLoader" IsVisible="false" BackgroundColor="#40000000" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator BindingContext="{x:Reference stackLoader}" IsRunning="{Binding IsVisible}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                </ActivityIndicator>
+                <Label Text="Loading..." HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                </Label>
             </StackLayout>
-        </AbsoluteLayout>
+        </StackLayout>
+        
+    </AbsoluteLayout>
+        </ContentPage.Content>
     
-</local:BaseContentPage>
+</ContentPage>

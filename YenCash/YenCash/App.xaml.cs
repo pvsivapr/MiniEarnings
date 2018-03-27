@@ -4,11 +4,12 @@ namespace YenCash
 {
     public partial class App : Application
     {
+        public static int screenHeight, screenWidth;
         public App()
         {
             InitializeComponent();
 
-            MainPage = new YenCashPage();
+            MainPage = new TestView();
         }
 
         protected override void OnStart()

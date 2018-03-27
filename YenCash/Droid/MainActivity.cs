@@ -31,7 +31,7 @@ namespace YenCash.Droid
 
             var ScreenWidth = (int)dps;
 
-            BaseContentPage.screenWidth = ScreenWidth;
+            App.screenWidth = ScreenWidth;
 
             RequestedOrientation = ScreenOrientation.Portrait;
 
@@ -39,7 +39,7 @@ namespace YenCash.Droid
             dps = (double)((pixels - 0.5f) / scale);
 
             var ScreenHeight = (int)dps;
-            BaseContentPage.screenHeight = ScreenHeight;
+            App.screenHeight = ScreenHeight;
 
             #endregion
 

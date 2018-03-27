@@ -16,8 +16,8 @@ namespace YenCash.iOS
 
             #region For Screen Height & Width
 
-            BaseContentPage.screenWidth = (int)UIScreen.MainScreen.Bounds.Width;
-            BaseContentPage.screenHeight = (int)UIScreen.MainScreen.Bounds.Height;
+            App.screenWidth = (int)UIScreen.MainScreen.Bounds.Width;
+            App.screenHeight = (int)UIScreen.MainScreen.Bounds.Height;
 
             #endregion
 
