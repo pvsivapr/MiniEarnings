@@ -68,6 +68,9 @@
     <Compile Include="Views\UserRegistration.xaml.cs">
       <DependentUpon>UserRegistration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserVerification.xaml.cs">
+      <DependentUpon>UserVerification.xaml</DependentUpon>
+    </Compile>
     <Compile Include="YenCashPage.xaml.cs">
       <DependentUpon>YenCashPage.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomControls\BaseContentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\UserVerification.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

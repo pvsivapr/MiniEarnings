@@ -14,6 +14,9 @@ namespace YenCash
             var width = (App.screenWidth * 1) / 100;
 
             gridDataInput.HeightRequest = height * 55;//screenHeight * 30;
+
+            stackFooterButton.HeightRequest = height * 9;
+
             btnLogin.WidthRequest = width * 30;
 
             //viewMainHolder.Content = AbsHolder;
@@ -27,7 +30,7 @@ namespace YenCash
                 var isValid = await IsFormValid();
                 if (isValid)
                 {
-
+                    Navigation.PushModalAsync(new UserVerification());
                 }
                 else
                 {

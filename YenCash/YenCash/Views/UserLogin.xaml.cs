@@ -13,7 +13,8 @@ namespace YenCash
             var height = (App.screenHeight * 1) / 100;
             var width = (App.screenWidth * 1) / 100;
 
-            gridDataInput.HeightRequest = height * 30;//screenHeight * 30;
+            gridDataInput.HeightRequest = height * 35;//screenHeight * 30;
+            stackFooterButton.HeightRequest = height * 9;
 
             btnRegister.WidthRequest = width * 30;
 
