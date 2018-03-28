@@ -1,14 +1,29 @@
-﻿<Properties StartupConfiguration="{4A9BF27D-DA01-47CD-B111-6728D46DD847}|Default">
-  <MonoDevelop.Ide.Workbench />
+﻿<Properties StartupConfiguration="{CA118C24-945C-4573-A7E8-5A8740EB83C4}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/ImageCropping/CropImage.cs">
+    <Files>
+      <File FileName="YenCash/Views/UserLogin.xaml.cs" Line="10" Column="27" />
+      <File FileName="iOS/Info.plist" />
+      <File FileName="YenCash/DAL/SQLiteTables/UsersInfo.cs" Line="6" Column="25" />
+      <File FileName="YenCash/DAL/SQLiteConnections/DatabaseMethods.cs" Line="52" Column="23" />
+      <File FileName="YenCash/DAL/SQLiteConnections/IDatabaseMethods.cs" Line="9" Column="29" />
+      <File FileName="Droid/SQliteDB/SQLite_Android.cs" Line="15" Column="17" />
+      <File FileName="iOS/SQLiteDB/SQLite_IOS.cs" Line="8" Column="13" />
+      <File FileName="YenCash/DAL/SQLiteConnections/ISQLite.cs" Line="7" Column="1" />
+      <File FileName="YenCash/DAL/SQLiteTables/DeviceTokenInfo.cs" Line="5" Column="30" />
+      <File FileName="YenCash/Models/UserInfo.cs" Line="3" Column="18" />
+      <File FileName="Droid/Properties/AndroidManifest.xml" Line="6" Column="12" />
+      <File FileName="Droid/ImageCropping/CropImage.cs" Line="43" Column="35" />
+      <File FileName="Droid/ImageCropping/CropImageView.cs" Line="5" Column="20" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/rabbit/Desktop/untitledfolder/PersonalProjFiles/MiniEarnings/YenCash/YenCash/Views/TestView.xaml.cs" relfile="YenCash/Views/TestView.xaml.cs" line="23" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.YenCash.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.ZY222Z3P7X" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.YenCash.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C95224D6-DD97-49E5-8302-491746C7D5CE">
+  <MonoDevelop.Ide.ItemProperties.YenCash.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C95224D6-DD97-49E5-8302-491746C7D5CE" automaticSigning="False">
     <MonoDevelop.MacDev.AppleDevelopmentTeam />
   </MonoDevelop.Ide.ItemProperties.YenCash.iOS>
 </Properties>

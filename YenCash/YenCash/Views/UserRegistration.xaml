@@ -71,6 +71,7 @@
                                         <x:Int32 x:Key="passwordRow">3</x:Int32>
                                         <x:Int32 x:Key="mobileRow">4</x:Int32>
                                         <x:Int32 x:Key="registerButtonRow">5</x:Int32>
+                                        <x:Int32 x:Key="OTPRow">6</x:Int32>
                                     </ResourceDictionary>
                                 </Grid.Resources>
 
@@ -111,6 +112,15 @@
 
                             <local:CustomButton x:Name="RegisterButton" Text="REGISTER" TextColor="{x:StaticResource AppTextColor}" Grid.Row="{x:StaticResource registerButtonRow}" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="RegisterButtonClicked">
                             </local:CustomButton>
+
+                                <StackLayout Orientation="Horizontal" Grid.Row="{x:StaticResource OTPRow}" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="End">
+
+                                <BoxView Color="{StaticResource HeadingTextColor}" HeightRequest="1" WidthRequest="30" HorizontalOptions="End" VerticalOptions="Center"></BoxView>
+                                <local:CustomLabel Text="I have OTP" TextColor="{StaticResource HeadingTextColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                </local:CustomLabel>
+                                <BoxView Color="{StaticResource HeadingTextColor}" HeightRequest="1" WidthRequest="30" HorizontalOptions="Start" VerticalOptions="Center"></BoxView>
+                                
+                            </StackLayout>
                             
                         </Grid>
                     </StackLayout>

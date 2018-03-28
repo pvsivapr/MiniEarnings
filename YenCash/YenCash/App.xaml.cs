@@ -9,7 +9,8 @@ namespace YenCash
         {
             InitializeComponent();
 
-            MainPage = new TestView();
+            //MainPage = new HomePage();
+            MainPage = new UserLogin();
         }
 
         protected override void OnStart()

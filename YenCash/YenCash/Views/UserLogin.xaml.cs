@@ -84,7 +84,8 @@ namespace YenCash
                 var isValid = await IsFormValid();
                 if(isValid)
                 {
-                    
+                    //Navigation.PushModalAsync(new UserProfile());
+                    App.Current.MainPage = new UserProfile();
                 }
                 else
                 {

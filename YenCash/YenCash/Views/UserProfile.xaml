@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+    xmlns:local="clr-namespace:YenCash;assembly=YenCash"
+    x:Class="YenCash.UserProfile">
+
+
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="imageIcon" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="labelIconInfo" TargetType="Label">
+                <!--<Setter Property="FontAttributes" Value="Bold" />-->
+                <Setter Property="TextColor" Value="{StaticResource HeadingTextColor}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+            <Style x:Key="stackIconHolder" TargetType="StackLayout">
+                <!--<Setter Property="BackgroundColor" Value="{StaticResource HeadingTextColor}" />-->
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="boxIconOverlay" TargetType="BoxView">
+                <Setter Property="Color" Value="Transparent" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+            <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    <ContentPage.Content>
+    <AbsoluteLayout x:Name="AbsHolder" BackgroundColor="{x:StaticResource PageBackgroundColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+            <StackLayout x:Name="stackMainHolder" BackgroundColor="{x:StaticResource HeaderColor}" AbsoluteLayout.LayoutBounds="0,0,1,0.08" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid Padding="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <local:CustomLabel Text="User Profile Edit" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    </local:CustomLabel>
+                </Grid>
+            </StackLayout>
+            
+            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,0.9" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    
+                <StackLayout Padding="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                <local:ImageCircle x:Name="imageProfilePic" Source="RupeeTwo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                    <local:ImageCircle.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ProfilePicTapped"/>
+                                    </local:ImageCircle.GestureRecognizers>
+                                </local:ImageCircle>
+                            </StackLayout>
+                            
+                        <Grid x:Name="gridDataInput" BackgroundColor="Teal" Padding="10,10,10,10" RowSpacing="10" ColumnSpacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                                <Grid.Resources>
+                                    <ResourceDictionary>
+                                        <x:Int32 x:Key="lotteryRow">0</x:Int32>
+                                        <x:Int32 x:Key="lotteryColumn">0</x:Int32>
+                                        <x:Int32 x:Key="QuizRow">0</x:Int32>
+                                        <x:Int32 x:Key="QuizColumn">1</x:Int32>
+                                        <x:Int32 x:Key="SurveyRow">0</x:Int32>
+                                        <x:Int32 x:Key="SurveyColumn">2</x:Int32>
+                                        <x:Int32 x:Key="SocialSharingRow">1</x:Int32>
+                                        <x:Int32 x:Key="SocialSharingColumn">0</x:Int32>
+                                        <x:Int32 x:Key="SudokuRow">1</x:Int32>
+                                        <x:Int32 x:Key="SudokuColumn">1</x:Int32>
+                                        <!--<x:Int32 x:Key="registerButtonRow">5</x:Int32>-->
+                                    </ResourceDictionary>
+                                </Grid.Resources>
+                            </Grid>
+                    </StackLayout>
+                    
+                    <StackLayout x:Name="stackFooterAdd" HeightRequest="60" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                        
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+
+            <StackLayout x:Name="stackLoader" IsVisible="false" BackgroundColor="#40000000" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator BindingContext="{x:Reference stackLoader}" IsRunning="{Binding IsVisible}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                </ActivityIndicator>
+                <Label Text="Loading..." HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                </Label>
+            </StackLayout>
+        </StackLayout>
+        
+    </AbsoluteLayout>
+        </ContentPage.Content>
+    
+</ContentPage>
