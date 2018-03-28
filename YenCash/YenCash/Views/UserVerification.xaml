@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:YenCash;assembly=YenCash"
+             x:Class="YenCash.UserVerification">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelEntryInfo" TargetType="Label">
+                <!--<Setter Property="FontAttributes" Value="Bold" />-->
+                <Setter Property="TextColor" Value="{StaticResource HeadingTextColor}" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="EntryInputData" TargetType="Entry">
+                <!--<Setter Property="FontAttributes" Value="Bold" />-->
+                <Setter Property="TextColor" Value="{StaticResource HeadingTextColor}" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource HeadingTextColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+            <Style x:Key="BoxUline" TargetType="BoxView">
+                <Setter Property="Color" Value="{StaticResource HeadingTextColor}" />
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+            <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <AbsoluteLayout x:Name="AbsHolder" BackgroundColor="{x:StaticResource PageBackgroundColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid BackgroundColor="Teal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="icon.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NavigationTapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <local:CustomLabel Text="User Verification" TextColor="{x:StaticResource HeadingTextColor}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                </local:CustomLabel>
+            </Grid>
+        </StackLayout>
+
+            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,0.9" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid x:Name="gridDataInput" Padding="10,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="0.6*"/>
+                                    <RowDefinition Height="0.4*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <local:CustomLabel x:Name="labelOTP" Text="Enter OTP for verification" IsVisible="false" Grid.Row="0" Grid.Column="0" Style="{x:StaticResource LabelEntryInfo}">
+                                </local:CustomLabel>
+                                <BoxView Grid.Row="0" Grid.Column="0" Style="{x:StaticResource BoxUline}">
+                                </BoxView>
+                                <local:CustomEntry x:Name="entryOTP" Placeholder="Enter OTP for verification" Grid.Row="0" Grid.Column="0" Style="{x:StaticResource EntryInputData}">
+                                </local:CustomEntry>
+
+                                <!--<local:CustomButton x:Name="VerifyButton" Text="VERIFY" TextColor="{x:StaticResource AppTextColor}" Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="VerifyButtonClicked">
+                                </local:CustomButton>-->
+                                <local:CustomButton x:Name="VerifyButton" Text="VERIFY" TextColor="{x:StaticResource AppTextColor}" Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="VerifyButtonClicked">
+                                </local:CustomButton>
+
+                                <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="End">
+
+                                    <BoxView Color="{StaticResource HeadingTextColor}" HeightRequest="1" WidthRequest="30" HorizontalOptions="End" VerticalOptions="Center"></BoxView>
+                                    <local:CustomLabel Text="Resend OTP" TextColor="{StaticResource HeadingTextColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                    </local:CustomLabel>
+                                    <BoxView Color="{StaticResource HeadingTextColor}" HeightRequest="1" WidthRequest="30" HorizontalOptions="Start" VerticalOptions="Center"></BoxView>
+
+                                </StackLayout>
+
+                            </Grid>
+                        </StackLayout>
+                        
+                    </StackLayout>
+                </ScrollView>
+
+            </StackLayout>
+
+            <StackLayout x:Name="stackLoader" IsVisible="false" BackgroundColor="#40000000" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator BindingContext="{x:Reference stackLoader}" IsRunning="{Binding IsVisible}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                    </ActivityIndicator>
+                    <Label Text="Loading..." HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

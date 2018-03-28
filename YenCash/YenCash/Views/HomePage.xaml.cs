@@ -32,6 +32,32 @@ namespace YenCash
             imageSudoku.WidthRequest = imageMetrices;
 
             gridDataInput.HeightRequest = height * 75;
+            
         }
+
+        private void LotteryTapped(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
+
+        private void QuizTapped(object sender, EventArgs e)
+        {
+            try
+            {
+                Navigation.PushModalAsync(new Quiz());
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
+
     }
 }

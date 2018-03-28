@@ -105,6 +105,9 @@
                                     </local:CustomLabel>
                                 </StackLayout>
                                 <BoxView Grid.Column="{x:StaticResource lotteryColumn}" Grid.Row="{x:StaticResource lotteryRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LotteryTapped"/>
+                                    </BoxView.GestureRecognizers>
                                 </BoxView>
 
                                 <StackLayout Grid.Column="{x:StaticResource QuizColumn}" Grid.Row="{x:StaticResource QuizRow}" Style="{x:StaticResource stackIconHolder}">
@@ -114,6 +117,9 @@
                                     </local:CustomLabel>
                                 </StackLayout>
                                 <BoxView Grid.Column="{x:StaticResource QuizColumn}" Grid.Row="{x:StaticResource QuizRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="QuizTapped"/>
+                                    </BoxView.GestureRecognizers>
                                 </BoxView>
 
                                 <StackLayout Grid.Column="{x:StaticResource SurveyColumn}" Grid.Row="{x:StaticResource SurveyRow}" Style="{x:StaticResource stackIconHolder}">
@@ -123,6 +129,9 @@
                                     </local:CustomLabel>
                                 </StackLayout>
                                 <BoxView Grid.Column="{x:StaticResource SurveyColumn}" Grid.Row="{x:StaticResource SurveyRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LotteryTapped"/>
+                                    </BoxView.GestureRecognizers>
                                 </BoxView>
 
                                 <StackLayout Grid.Column="{x:StaticResource SocialSharingColumn}" Grid.Row="{x:StaticResource SocialSharingRow}" Style="{x:StaticResource stackIconHolder}">
@@ -132,6 +141,9 @@
                                     </local:CustomLabel>
                                 </StackLayout>
                                 <BoxView Grid.Column="{x:StaticResource SocialSharingColumn}" Grid.Row="{x:StaticResource SocialSharingRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LotteryTapped"/>
+                                    </BoxView.GestureRecognizers>
                                 </BoxView>
 
                                 <StackLayout Grid.Column="{x:StaticResource SudokuColumn}" Grid.Row="{x:StaticResource SudokuRow}" Style="{x:StaticResource stackIconHolder}">

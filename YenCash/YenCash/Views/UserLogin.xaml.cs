@@ -18,6 +18,8 @@ namespace YenCash
 
             btnRegister.WidthRequest = width * 30;
 
+            stackFooterButton.HeightRequest = height * 7;
+
             //viewMainHolder.Content = AbsHolder;
 
             entryUserEmail.Focused += entryUserEmailFocused;

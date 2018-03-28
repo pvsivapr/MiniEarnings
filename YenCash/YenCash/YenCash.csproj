@@ -70,11 +70,17 @@
     <Compile Include="RESTServiceLayer\HttpClientSource.cs" />
     <Compile Include="Utilities\AppGlobalVariables.cs" />
     <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Views\Quiz.xaml.cs">
+      <DependentUpon>Quiz.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserLogin.xaml.cs">
       <DependentUpon>UserLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserRegistration.xaml.cs">
       <DependentUpon>UserRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserVerification.xaml.cs">
+      <DependentUpon>UserVerification.xaml</DependentUpon>
     </Compile>
     <Compile Include="YenCashPage.xaml.cs">
       <DependentUpon>YenCashPage.xaml</DependentUpon>
@@ -142,12 +148,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="RESTServiceLayer\JSONModels\" />
-    <Folder Include="DependencyServices\" />
-    <Folder Include="DAL\" />
-    <Folder Include="DAL\SQLiteConnections\" />
-    <Folder Include="DAL\SQLiteTables\" />
-    <Folder Include="Models\" />
+    <EmbeddedResource Include="Views\Quiz.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\UserVerification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.280555\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

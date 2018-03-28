@@ -125,12 +125,12 @@
                         </Grid>
                     </StackLayout>
                     
-                    <StackLayout x:Name="stackFooterButton" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                    <StackLayout x:Name="stackFooterButton" BackgroundColor="Green" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
                         <local:CustomLabel Text="Already have an account ?" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
                         </local:CustomLabel>
                         <!--<local:CustomLabel Text="Register">
                         </local:CustomLabel>-->
-                            <local:CustomLabel x:Name="btnLogin" Text="Login" HorizontalTextAlignment="Center" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                            <local:CustomLabel x:Name="btnLogin" Text="Login" BackgroundColor="Maroon" HorizontalTextAlignment="Center" HorizontalOptions="End" VerticalOptions="FillAndExpand">
                                 <local:CustomLabel.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LoginButtonClicked"/>
                                 </local:CustomLabel.GestureRecognizers>
