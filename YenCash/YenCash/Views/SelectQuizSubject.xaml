@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+    xmlns:local="clr-namespace:YenCash;assembly=YenCash"
+    x:Class="YenCash.SelectQuizSubject">
+
+
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="imageIcon" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="labelIconInfo" TargetType="Label">
+                <!--<Setter Property="FontAttributes" Value="Bold" />-->
+                <Setter Property="TextColor" Value="{x:StaticResource AppTextColor}" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="stackIconHolder" TargetType="StackLayout">
+                <!--<Setter Property="BackgroundColor" Value="{StaticResource AppTextColor}" />-->
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            <Style x:Key="boxIconOverlay" TargetType="BoxView">
+                <Setter Property="Color" Value="Transparent" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+            <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    <ContentPage.Content>
+    <AbsoluteLayout x:Name="AbsHolder" BackgroundColor="{x:StaticResource PageBackgroundColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+            <StackLayout x:Name="stackMainHolder" BackgroundColor="{x:StaticResource HeaderColor}" AbsoluteLayout.LayoutBounds="0,0,1,0.08" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image Source="MenuHamBurger.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NavigationTapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    
+                    <local:CustomLabel x:Name="pageTitle" Text="Seelect Topic" TextColor="{x:StaticResource HeadingTextColor}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    </local:CustomLabel>
+
+                    <StackLayout Grid.Row="0" Grid.Column="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image Source="SearchBarIcon.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SearchTapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+
+                    <StackLayout x:Name="SearchHolder" BackgroundColor="{x:StaticResource HeaderColor}" IsVisible="false" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                        <local:CustomEntry x:Name="entrySearchBar" Placeholder="Search ..." BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TextChanged="SearchData">
+                        </local:CustomEntry>
+                        
+                        <Image Source="Close.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="CloseTapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    
+                </Grid>
+            </StackLayout>
+            
+            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,0.92" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Padding="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <ListView x:Name="listQuizTopics" IsGroupingEnabled="true" HasUnevenRows="true" SeparatorVisibility="Default" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    </ListView>
+                </StackLayout>
+                
+                <StackLayout x:Name="stackFooterAdd" HeightRequest="50" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                    <local:AdBanner Size="SmartBannerPortrait"></local:AdBanner>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout x:Name="stackLoader" IsVisible="false" BackgroundColor="#40000000" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator BindingContext="{x:Reference stackLoader}" IsRunning="{Binding IsVisible}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                </ActivityIndicator>
+                <Label Text="Loading..." HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                </Label>
+            </StackLayout>
+        </StackLayout>
+        
+    </AbsoluteLayout>
+        </ContentPage.Content>
+    
+</ContentPage>

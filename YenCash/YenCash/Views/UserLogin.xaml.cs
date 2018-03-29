@@ -14,11 +14,10 @@ namespace YenCash
             var width = (App.screenWidth * 1) / 100;
 
             gridDataInput.HeightRequest = height * 35;//screenHeight * 30;
-            stackFooterButton.HeightRequest = height * 9;
 
             btnRegister.WidthRequest = width * 30;
 
-            stackFooterButton.HeightRequest = height * 7;
+            stackFooterButton.HeightRequest = height * 9;
 
             //viewMainHolder.Content = AbsHolder;
 
@@ -81,13 +80,14 @@ namespace YenCash
 
         private async void LoginButtonClicked(object sender, EventArgs e)
         {
+            //stackLoader.IsVisible = true;
             try
             {
                 var isValid = await IsFormValid();
                 if(isValid)
                 {
                     //Navigation.PushModalAsync(new UserProfile());
-                    App.Current.MainPage = new UserProfile();
+                    App.Current.MainPage = new HomePage();
                 }
                 else
                 {
@@ -98,6 +98,7 @@ namespace YenCash
             {
                 PrintLog.PublishLog(ex);
             }
+            //stackLoader.IsVisible = false;
         }
 
         private async Task<bool> IsFormValid()
@@ -117,14 +118,16 @@ namespace YenCash
 
         private async void RegisterButtonClicked(object sender, EventArgs e)
         {
+            //stackLoader.IsVisible = true;
             try
             {
-                Navigation.PushModalAsync(new UserRegistration());
+                await Navigation.PushModalAsync(new UserRegistration());
             }
             catch (Exception ex)
             {
                 PrintLog.PublishLog(ex);
             }
+            //stackLoader.IsVisible = false;
         }
     }
 }

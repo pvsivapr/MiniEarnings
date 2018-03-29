@@ -42,6 +42,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SelectQuizSubject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -104,6 +112,14 @@
     <Compile Include="DAL\SQLiteConnections\ISQLite.cs" />
     <Compile Include="DAL\SQLiteTables\DeviceTokenInfo.cs" />
     <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="CustomControls\AdBanner.cs" />
+    <Compile Include="DependencyServices\IAdInterstitital.cs" />
+    <Compile Include="Views\UserSettings.xaml.cs">
+      <DependentUpon>UserSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectQuizSubject.xaml.cs">
+      <DependentUpon>SelectQuizSubject.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -155,7 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\UserVerification.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

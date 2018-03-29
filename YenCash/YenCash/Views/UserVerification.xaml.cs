@@ -36,7 +36,7 @@ namespace YenCash
                 var isValid = await IsFormValid();
                 if (isValid)
                 {
-
+                    App.Current.MainPage = new HomePage();
                 }
                 else
                 {

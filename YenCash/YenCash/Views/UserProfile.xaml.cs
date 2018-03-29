@@ -25,6 +25,17 @@ namespace YenCash
 
         }
 
+        private async void NavigationTapped(object sender, EventArgs e)
+        {
+            try
+            {
+                Navigation.PopModalAsync();
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
 
         #region for ProfilePic Tapped event
         ImageSource AvatarImageSource;

@@ -13,13 +13,11 @@ namespace YenCash
             var height = (App.screenHeight * 1) / 100;
             var width = (App.screenWidth * 1) / 100;
 
-            gridDataInput.HeightRequest = height * 55;//screenHeight * 30;
-
-            stackFooterButton.HeightRequest = height * 9;
+            gridDataInput.HeightRequest = height * 65;//screenHeight * 30;
 
             btnLogin.WidthRequest = width * 30;
 
-            stackFooterButton.HeightRequest = height * 7;
+            stackFooterButton.HeightRequest = height * 9;
 
             //viewMainHolder.Content = AbsHolder;
         }
@@ -32,8 +30,8 @@ namespace YenCash
                 var isValid = await IsFormValid();
                 if (isValid)
                 {
-                    //Navigation.PushModalAsync(new UserVerification());
-                    Navigation.PushModalAsync(new HomePage());
+                    Navigation.PushModalAsync(new UserVerification());
+                    //Navigation.PushModalAsync(new HomePage());
                 }
                 else
                 {

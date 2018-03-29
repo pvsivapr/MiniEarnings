@@ -14,6 +14,8 @@ namespace YenCash
             var height = (App.screenHeight * 1) / 100;
             var width = (App.screenWidth * 1) / 100;
 
+            pageTitle.FontSize = width * 6;
+
             var imageMetrices = width * 38;
 
             imageLottery.HeightRequest = imageMetrices;
@@ -31,32 +33,64 @@ namespace YenCash
             imageSudoku.HeightRequest = imageMetrices;
             imageSudoku.WidthRequest = imageMetrices;
 
-            gridDataInput.HeightRequest = height * 75;
+            //gridDataInput.HeightRequest = height * 75;
             
         }
 
-        private void LotteryTapped(object sender, EventArgs e)
+        private async void SettingsTapped(object sender, EventArgs e)
         {
+            //stackLoader.IsVisible = true;
             try
             {
-
+                await Navigation.PushModalAsync(new UserSettings());
             }
             catch (Exception ex)
             {
                 PrintLog.PublishLog(ex);
             }
+            //stackLoader.IsVisible = false;
         }
 
-        private void QuizTapped(object sender, EventArgs e)
+        private async void LogoutTapped(object sender, EventArgs e)
         {
+            //stackLoader.IsVisible = true;
             try
             {
-                Navigation.PushModalAsync(new Quiz());
+                await Navigation.PushModalAsync(new UserLogin());
             }
             catch (Exception ex)
             {
                 PrintLog.PublishLog(ex);
             }
+            //stackLoader.IsVisible = false;
+        }
+
+        private async void LotteryTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+
+        private async void QuizTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                await Navigation.PushModalAsync(new Quiz());
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
         }
 
     }

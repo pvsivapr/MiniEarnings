@@ -9,8 +9,14 @@ namespace YenCash
         {
             InitializeComponent();
 
+            //int HeaderTextSize = screenWidth * 6;
+
+            //Resources = new ResourceDictionary();
+            //Resources.Add("HeaderTextSize", HeaderTextSize);
+
+
             //MainPage = new HomePage();
-            MainPage = new UserLogin();
+            MainPage = new TestView();
         }
 
         protected override void OnStart()

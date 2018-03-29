@@ -101,12 +101,12 @@
                             
                         </Grid>
                     </StackLayout>
-                        <StackLayout x:Name="stackFooterButton" BackgroundColor="Green"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                        <StackLayout x:Name="stackFooterButton" BackgroundColor="#40FFFFFF"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
                         <local:CustomLabel Text="Didn't have an account ?" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
                         </local:CustomLabel>
                         <!--<local:CustomLabel Text="Register">
                         </local:CustomLabel>-->
-                            <local:CustomLabel x:Name="btnRegister" Text="Register" BackgroundColor="Maroon" HorizontalTextAlignment="Center" HorizontalOptions="End" VerticalOptions="FillAndExpand">
+                            <local:CustomLabel x:Name="btnRegister" Text="Register" BackgroundColor="#FFFFFF" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End" VerticalOptions="FillAndExpand">
                                 <local:CustomLabel.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="RegisterButtonClicked"/>
                                 </local:CustomLabel.GestureRecognizers>
