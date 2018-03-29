@@ -70,7 +70,22 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
+                await Navigation.PushModalAsync(new Lottery());
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+        
 
+        private async void QuizTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                await Navigation.PushModalAsync(new Quiz());
             }
             catch (Exception ex)
             {
@@ -79,12 +94,40 @@ namespace YenCash
             //stackLoader.IsVisible = false;
         }
 
-        private async void QuizTapped(object sender, EventArgs e)
+        private async void SurveyTapped(object sender, EventArgs e)
         {
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new Quiz());
+                await Navigation.PushModalAsync(new Survey());
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+
+        private async void SocialSharingTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                await Navigation.PushModalAsync(new SocialMedia());
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+
+        private async void SudokuTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                await Navigation.PushModalAsync(new Sudoku());
             }
             catch (Exception ex)
             {

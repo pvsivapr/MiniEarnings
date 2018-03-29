@@ -43,7 +43,7 @@
     <ContentPage.Content>
         <AbsoluteLayout x:Name="AbsHolder" BackgroundColor="{x:StaticResource PageBackgroundColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.1" BackgroundColor="{x:StaticResource HeaderColor}" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.08" BackgroundColor="{x:StaticResource HeaderColor}" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Grid BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -65,7 +65,7 @@
                 </Grid>
             </StackLayout>
             
-            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,0.9" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,0.92" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
                 <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 

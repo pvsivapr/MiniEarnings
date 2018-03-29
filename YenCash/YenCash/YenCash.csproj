@@ -78,8 +78,20 @@
     <Compile Include="RESTServiceLayer\HttpClientSource.cs" />
     <Compile Include="Utilities\AppGlobalVariables.cs" />
     <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Views\Lottery.xaml.cs">
+      <DependentUpon>Lottery.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Quiz.xaml.cs">
       <DependentUpon>Quiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SocialMedia.xaml.cs">
+      <DependentUpon>SocialMedia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sudoku.xaml.cs">
+      <DependentUpon>Sudoku.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Survey.xaml.cs">
+      <DependentUpon>Survey.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserLogin.xaml.cs">
       <DependentUpon>UserLogin.xaml</DependentUpon>
@@ -171,6 +183,30 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\UserVerification.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Lottery.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Survey.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Sudoku.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SocialMedia.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

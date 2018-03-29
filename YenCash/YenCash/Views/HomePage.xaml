@@ -156,7 +156,7 @@
                                 </StackLayout>
                                 <BoxView Grid.Column="{x:StaticResource SurveyColumn}" Grid.Row="{x:StaticResource SurveyRow}" Style="{x:StaticResource boxIconOverlay}">
                                     <BoxView.GestureRecognizers>
-                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LotteryTapped"/>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SurveyTapped"/>
                                     </BoxView.GestureRecognizers>
                                 </BoxView>
 
@@ -168,7 +168,7 @@
                                 </StackLayout>
                                 <BoxView Grid.Column="{x:StaticResource SocialSharingColumn}" Grid.Row="{x:StaticResource SocialSharingRow}" Style="{x:StaticResource boxIconOverlay}">
                                     <BoxView.GestureRecognizers>
-                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LotteryTapped"/>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SocialSharingTapped"/>
                                     </BoxView.GestureRecognizers>
                                 </BoxView>
 
@@ -179,6 +179,9 @@
                                     </local:CustomLabel>
                                 </StackLayout>
                                 <BoxView Grid.Column="{x:StaticResource SudokuColumn}" Grid.Row="{x:StaticResource SudokuRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SudokuTapped"/>
+                                    </BoxView.GestureRecognizers>
                                 </BoxView>
                                 
 
