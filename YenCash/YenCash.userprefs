@@ -1,26 +1,11 @@
 ﻿<Properties StartupConfiguration="{CA118C24-945C-4573-A7E8-5A8740EB83C4}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="YenCash/Views/UserSettings.xaml">
-    <Files>
-      <File FileName="YenCash/Views/ChangePassword.xaml" Line="65" Column="41" />
-      <File FileName="YenCash/Views/ChangePassword.xaml.cs" Line="40" Column="10" />
-      <File FileName="YenCash/Views/UserProfile.xaml" Line="79" Column="38" />
-      <File FileName="YenCash/Views/UserProfile.xaml.cs" Line="136" Column="10" />
-      <File FileName="YenCash/Views/Quiz.xaml" Line="148" Column="81" />
-      <File FileName="YenCash/Views/UserRegistration.xaml" Line="34" Column="29" />
-      <File FileName="YenCash/Views/UserRegistration.xaml.cs" Line="158" Column="41" />
-      <File FileName="YenCash/Views/UserSettings.xaml" Line="10" Column="25" />
-      <File FileName="YenCash/Views/UserSettings.xaml.cs" Line="14" Column="1" />
-      <File FileName="YenCash/App.xaml.cs" Line="18" Column="41" />
-      <File FileName="YenCash/Views/Quiz.xaml.cs" Line="26" Column="44" />
-      <File FileName="YenCash/obj/Debug/YenCash.Views.UserSettings.xaml.g.cs" Line="59" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.YenCash.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Nougat" />
+  <MonoDevelop.Ide.ItemProperties.YenCash.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.ZY222Z3P7X" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.YenCash.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C95224D6-DD97-49E5-8302-491746C7D5CE" automaticSigning="False">
     <MonoDevelop.MacDev.AppleDevelopmentTeam />

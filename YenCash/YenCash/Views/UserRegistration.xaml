@@ -114,9 +114,9 @@
                             </local:CustomLabel>
                             <BoxView Grid.Row="{x:StaticResource passwordRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource BoxUline}">
                             </BoxView>
-                            <local:CustomEntry x:Name="entryUserPassword" Placeholder="Enter User Password" IsPassword="true" IsCustomPassword="true" Grid.Row="{x:StaticResource passwordRow}" Grid.Column="0" Style="{x:StaticResource EntryInputData}">
+                            <local:CustomEntry x:Name="entryUserPassword" Placeholder="Enter User Password" IsPassword="true" IsCustomPassword="true" Grid.Row="{x:StaticResource passwordRow}" Grid.Column="0" Style="{x:StaticResource EntryInputData}" TextChanged="PasswordEdited">
                             </local:CustomEntry>
-                                <Image Source="icon.png" Grid.Row="{x:StaticResource passwordRow}" Grid.Column="1">
+                                <Image x:Name="imagePasswordAccess" Source="icon.png" Opacity="0" IsEnabled="false" Grid.Row="{x:StaticResource passwordRow}" Grid.Column="1">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PasswordVisibilityClicked"/>
                                     </Image.GestureRecognizers>
@@ -129,6 +129,9 @@
 
                                 <BoxView Color="{StaticResource HeadingTextColor}" HeightRequest="1" WidthRequest="30" HorizontalOptions="End" VerticalOptions="Center"></BoxView>
                                 <local:CustomLabel Text="I have OTP" TextColor="{StaticResource HeadingTextColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                        <local:CustomLabel.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="HaveOTPTapped"/>
+                                        </local:CustomLabel.GestureRecognizers>
                                 </local:CustomLabel>
                                 <BoxView Color="{StaticResource HeadingTextColor}" HeightRequest="1" WidthRequest="30" HorizontalOptions="Start" VerticalOptions="Center"></BoxView>
                                 

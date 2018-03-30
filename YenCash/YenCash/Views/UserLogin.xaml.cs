@@ -99,6 +99,29 @@ namespace YenCash
             }
         }
 
+        private void PasswordEdited(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (!(string.IsNullOrEmpty(entryUserPassword.Text)))
+                {
+                    imagePasswordAccess.Opacity = 1;
+                    //imagePasswordAccess.IsVisible = true;
+                    imagePasswordAccess.IsEnabled = true;
+                }
+                else
+                {
+                    imagePasswordAccess.Opacity = 0;
+                    //imagePasswordAccess.IsVisible = false;
+                    imagePasswordAccess.IsEnabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
+
         private async void PasswordVisibilityClicked(object sender, EventArgs e)
         {
             try

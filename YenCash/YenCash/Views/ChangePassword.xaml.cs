@@ -60,6 +60,27 @@ namespace YenCash
             }
         }
 
+        private void OldPasswordEdited(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (!(string.IsNullOrEmpty(entryOldPassword.Text)))
+                {
+                    imageOldPasswordAccess.Opacity = 1;
+                    imageOldPasswordAccess.IsEnabled = true;
+                }
+                else
+                {
+                    imageOldPasswordAccess.Opacity = 0;
+                    imageOldPasswordAccess.IsEnabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
+
         private async void NewPasswordVisibilityClicked(object sender, EventArgs e)
         {
             try
@@ -73,6 +94,27 @@ namespace YenCash
                 {
                     entryNewPassword.IsCustomPassword = true;
                     entryNewPassword.IsPassword = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
+
+        private void NewPasswordEdited(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (!(string.IsNullOrEmpty(entryNewPassword.Text)))
+                {
+                    imageNewPasswordAccess.Opacity = 1;
+                    imageNewPasswordAccess.IsEnabled = true;
+                }
+                else
+                {
+                    imageNewPasswordAccess.Opacity = 0;
+                    imageNewPasswordAccess.IsEnabled = false;
                 }
             }
             catch (Exception ex)
