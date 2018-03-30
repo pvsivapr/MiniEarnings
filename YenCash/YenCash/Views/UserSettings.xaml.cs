@@ -9,15 +9,18 @@ namespace YenCash
     {
         public UserSettings()
         {
-            InitializeComponent();
-
-
             var height = (App.screenHeight * 1) / 100;
             var width = (App.screenWidth * 1) / 100;
 
+
+            InitializeComponent();
+
+
+
+
             pageTitle.FontSize = width * 6;
 
-            var imageMetrices = width * 38;
+            var imageMetrices = width * 35;
 
             imageUserProfile.HeightRequest = imageMetrices;
             imageUserProfile.WidthRequest = imageMetrices;
@@ -27,6 +30,12 @@ namespace YenCash
 
             imagePointsEarned.HeightRequest = imageMetrices;
             imagePointsEarned.WidthRequest = imageMetrices;
+
+            imageKYC.HeightRequest = imageMetrices;
+            imageKYC.WidthRequest = imageMetrices;
+
+            imagePayment.HeightRequest = imageMetrices;
+            imagePayment.WidthRequest = imageMetrices;
 
             imageFAQ.HeightRequest = imageMetrices;
             imageFAQ.WidthRequest = imageMetrices;
@@ -38,7 +47,7 @@ namespace YenCash
             //imageSudoku.HeightRequest = imageMetrices;
             //imageSudoku.WidthRequest = imageMetrices;
 
-            //gridDataInput.HeightRequest = height * 25;
+            //gridDataInput.HeightRequest = height * 80;
 
         }
 
@@ -85,7 +94,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                //await Navigation.PushModalAsync(new UserProfile());
+                await Navigation.PushModalAsync(new ChangePassword());
             }
             catch (Exception ex)
             {
@@ -95,6 +104,30 @@ namespace YenCash
         }
 
         private async void PointsEarnedTapped(object sender, EventArgs e)
+        {
+            try
+            {
+                //await Navigation.PushModalAsync(new UserProfile());
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
+
+        private async void KYCTapped(object sender, EventArgs e)
+        {
+            try
+            {
+                //await Navigation.PushModalAsync(new UserProfile());
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
+
+        private async void PaymentTapped(object sender, EventArgs e)
         {
             try
             {

@@ -10,17 +10,18 @@
 	<ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="imageIcon" TargetType="Image">
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
             </Style>
             <Style x:Key="labelIconInfo" TargetType="Label">
                 <!--<Setter Property="FontAttributes" Value="Bold" />-->
                 <Setter Property="TextColor" Value="{x:StaticResource AppTextColor}" />
                 <Setter Property="FontSize" Value="Small" />
+<!--                <Setter Property="HeightRequest" Value="40" />-->
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="VerticalTextAlignment" Value="Start" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="End" />
             </Style>
             <Style x:Key="stackIconHolder" TargetType="StackLayout">
                 <!--<Setter Property="BackgroundColor" Value="{StaticResource AppTextColor}" />-->
@@ -91,6 +92,7 @@
                             <Grid.RowDefinitions>
                                     <RowDefinition Height="1*"/>
                                     <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
                                 <!--<RowDefinition Height="Auto"/>-->
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
@@ -106,12 +108,16 @@
                                         <x:Int32 x:Key="ChangePasswordColumn">1</x:Int32>
                                         <x:Int32 x:Key="PointsEarnedRow">0</x:Int32>
                                         <x:Int32 x:Key="PointsEarnedColumn">2</x:Int32>
+                                        <x:Int32 x:Key="KYCRow">1</x:Int32>
+                                        <x:Int32 x:Key="KYCColumn">0</x:Int32>
+                                        <x:Int32 x:Key="PaymentRow">1</x:Int32>
+                                        <x:Int32 x:Key="PaymentColumn">1</x:Int32>
                                         <x:Int32 x:Key="FAQRow">1</x:Int32>
-                                        <x:Int32 x:Key="FAQColumn">0</x:Int32>
-                                        <x:Int32 x:Key="AboutUsRow">1</x:Int32>
-                                        <x:Int32 x:Key="AboutUsColumn">1</x:Int32>
-                                        <x:Int32 x:Key="SudokuRow">1</x:Int32>
-                                        <x:Int32 x:Key="SudokuColumn">2</x:Int32>
+                                        <x:Int32 x:Key="FAQColumn">2</x:Int32>
+                                        <x:Int32 x:Key="AboutUsRow">2</x:Int32>
+                                        <x:Int32 x:Key="AboutUsColumn">0</x:Int32>
+                                        <x:Int32 x:Key="SudokuRow">2</x:Int32>
+                                        <x:Int32 x:Key="SudokuColumn">1</x:Int32>
                                         <!--<x:Int32 x:Key="registerButtonRow">5</x:Int32>-->
                                     </ResourceDictionary>
                                 </Grid.Resources>
@@ -149,6 +155,30 @@
                                 <BoxView Grid.Column="{x:StaticResource PointsEarnedColumn}" Grid.Row="{x:StaticResource PointsEarnedRow}" Style="{x:StaticResource boxIconOverlay}">
                                     <BoxView.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PointsEarnedTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource KYCColumn}" Grid.Row="{x:StaticResource KYCRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageKYC" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="KYC" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource KYCColumn}" Grid.Row="{x:StaticResource KYCRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="KYCTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource PaymentColumn}" Grid.Row="{x:StaticResource PaymentRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imagePayment" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="Payments" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource PaymentColumn}" Grid.Row="{x:StaticResource PaymentRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PaymentTapped"/>
                                     </BoxView.GestureRecognizers>
                                 </BoxView>
 

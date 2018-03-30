@@ -50,6 +50,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -131,6 +135,9 @@
     </Compile>
     <Compile Include="Views\SelectQuizSubject.xaml.cs">
       <DependentUpon>SelectQuizSubject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
