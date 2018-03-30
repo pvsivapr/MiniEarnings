@@ -85,7 +85,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new Quiz());
+                await Navigation.PushModalAsync(new SelectQuizSubject());
             }
             catch (Exception ex)
             {

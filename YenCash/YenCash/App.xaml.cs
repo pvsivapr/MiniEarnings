@@ -15,8 +15,9 @@ namespace YenCash
             //Resources.Add("HeaderTextSize", HeaderTextSize);
 
 
-            MainPage = new HomePage();
+            //MainPage = new HomePage();
             //MainPage = new TestView();
+            MainPage = new UserRegistration();
         }
 
         protected override void OnStart()

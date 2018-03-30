@@ -14,8 +14,10 @@ namespace YenCash
     {
         public int changeDimension, defaultdimension;
         public string SelectedOption="";
-        public Quiz()
+        QuizTopic quizTopic;
+        public Quiz(QuizTopic selectedTopic)
         {
+            quizTopic = selectedTopic;
             InitializeComponent();
             GetPageData();
             var height = (App.screenHeight * 1) / 100;

@@ -64,60 +64,68 @@
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
 
                                 <Grid.Resources>
                                     <ResourceDictionary>
                                         <x:Int32 x:Key="firstNameRow">0</x:Int32>
                                         <x:Int32 x:Key="lastNameRow">1</x:Int32>
-                                        <x:Int32 x:Key="emailRow">2</x:Int32>
+                                        <x:Int32 x:Key="mobileRow">2</x:Int32>
                                         <x:Int32 x:Key="passwordRow">3</x:Int32>
-                                        <x:Int32 x:Key="mobileRow">4</x:Int32>
+                                        <x:Int32 x:Key="emailRow">4</x:Int32>
                                         <x:Int32 x:Key="registerButtonRow">5</x:Int32>
                                         <x:Int32 x:Key="OTPRow">6</x:Int32>
+                                        <x:Int32 x:Key="generalColumnSpan">2</x:Int32>
                                     </ResourceDictionary>
                                 </Grid.Resources>
 
-                            <local:CustomLabel x:Name="labelUserFirstName" Text="Enter User First Name" IsVisible="false" Grid.Row="{x:StaticResource firstNameRow}" Grid.Column="0" Style="{x:StaticResource LabelEntryInfo}">
+                            <local:CustomLabel x:Name="labelUserFirstName" Text="Enter User First Name" IsVisible="false" Grid.Row="{x:StaticResource firstNameRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource LabelEntryInfo}">
                             </local:CustomLabel>
-                            <BoxView Grid.Row="{x:StaticResource firstNameRow}" Grid.Column="0" Style="{x:StaticResource BoxUline}">
+                            <BoxView Grid.Row="{x:StaticResource firstNameRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource BoxUline}">
                             </BoxView>
-                            <local:CustomEntry x:Name="entrytUserFirstName" Placeholder="Enter User First Name" IsPassword="true" IsCustomPassword="true" Grid.Row="{x:StaticResource firstNameRow}" Grid.Column="0" Style="{x:StaticResource EntryInputData}">
+                            <local:CustomEntry x:Name="entrytUserFirstName" Placeholder="Enter User First Name" Grid.Row="{x:StaticResource firstNameRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource EntryInputData}">
                             </local:CustomEntry>
 
-                            <local:CustomLabel x:Name="labelUserLastName" Text="Enter User Last Name" IsVisible="false" Grid.Row="{x:StaticResource lastNameRow}" Grid.Column="0" Style="{x:StaticResource LabelEntryInfo}">
+                            <local:CustomLabel x:Name="labelUserLastName" Text="Enter User Last Name" IsVisible="false" Grid.Row="{x:StaticResource lastNameRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource LabelEntryInfo}">
                             </local:CustomLabel>
-                            <BoxView Grid.Row="{x:StaticResource lastNameRow}" Grid.Column="0" Style="{x:StaticResource BoxUline}">
+                            <BoxView Grid.Row="{x:StaticResource lastNameRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource BoxUline}">
                             </BoxView>
-                            <local:CustomEntry x:Name="entryUserLastName" Placeholder="Enter User Last Name" Grid.Row="{x:StaticResource lastNameRow}" Grid.Column="0" Style="{x:StaticResource EntryInputData}">
+                            <local:CustomEntry x:Name="entryUserLastName" Placeholder="Enter User Last Name" Grid.Row="{x:StaticResource lastNameRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource EntryInputData}">
                             </local:CustomEntry>
 
-                            <local:CustomLabel x:Name="labelUserEmail" Text="Enter User Email Id" IsVisible="false" Grid.Row="{x:StaticResource emailRow}" Grid.Column="0" Style="{x:StaticResource LabelEntryInfo}">
+                                
+                            <local:CustomLabel x:Name="labelUserMobile" Text="Enter User Mobile number" IsVisible="false" Grid.Row="{x:StaticResource mobileRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource LabelEntryInfo}">
                             </local:CustomLabel>
-                            <BoxView Grid.Row="{x:StaticResource emailRow}" Grid.Column="0" Style="{x:StaticResource BoxUline}">
+                            <BoxView Grid.Row="{x:StaticResource mobileRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource BoxUline}">
                             </BoxView>
-                            <local:CustomEntry x:Name="entryUserEmail" Placeholder="Enter User Email Id" IsPassword="true" IsCustomPassword="true" Grid.Row="{x:StaticResource emailRow}" Grid.Column="0" Style="{x:StaticResource EntryInputData}">
+                            <local:CustomEntry x:Name="entryUserMobile" Keyboard="Numeric" Placeholder="Enter User Mobile number" Grid.Row="{x:StaticResource mobileRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource EntryInputData}">
                             </local:CustomEntry>
 
-                            <local:CustomLabel x:Name="labelUserPassword" Text="Enter User Password" IsVisible="false" Grid.Row="{x:StaticResource passwordRow}" Grid.Column="0" Style="{x:StaticResource LabelEntryInfo}">
+                            <local:CustomLabel x:Name="labelUserEmail" Text="Enter User Email Id" IsVisible="false" Grid.Row="{x:StaticResource emailRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource LabelEntryInfo}">
                             </local:CustomLabel>
-                            <BoxView Grid.Row="{x:StaticResource passwordRow}" Grid.Column="0" Style="{x:StaticResource BoxUline}">
+                            <BoxView Grid.Row="{x:StaticResource emailRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource BoxUline}">
+                            </BoxView>
+                            <local:CustomEntry x:Name="entryUserEmail" Keyboard="Url" Placeholder="Enter User Email Id" Grid.Row="{x:StaticResource emailRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource EntryInputData}">
+                            </local:CustomEntry>
+
+                            <local:CustomLabel x:Name="labelUserPassword" Text="Enter User Password" IsVisible="false" Grid.Row="{x:StaticResource passwordRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource LabelEntryInfo}">
+                            </local:CustomLabel>
+                            <BoxView Grid.Row="{x:StaticResource passwordRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" Style="{x:StaticResource BoxUline}">
                             </BoxView>
                             <local:CustomEntry x:Name="entryUserPassword" Placeholder="Enter User Password" IsPassword="true" IsCustomPassword="true" Grid.Row="{x:StaticResource passwordRow}" Grid.Column="0" Style="{x:StaticResource EntryInputData}">
                             </local:CustomEntry>
+                                <Image Source="icon.png" Grid.Row="{x:StaticResource passwordRow}" Grid.Column="1">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PasswordVisibilityClicked"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
 
-                            <local:CustomLabel x:Name="labelUserMobile" Text="Enter User Mobile number" IsVisible="false" Grid.Row="{x:StaticResource mobileRow}" Grid.Column="0" Style="{x:StaticResource LabelEntryInfo}">
-                            </local:CustomLabel>
-                            <BoxView Grid.Row="{x:StaticResource mobileRow}" Grid.Column="0" Style="{x:StaticResource BoxUline}">
-                            </BoxView>
-                            <local:CustomEntry x:Name="entryUserMobile" Placeholder="Enter User Mobile number" IsPassword="true" IsCustomPassword="true" Grid.Row="{x:StaticResource mobileRow}" Grid.Column="0" Style="{x:StaticResource EntryInputData}">
-                            </local:CustomEntry>
-
-                            <local:CustomButton x:Name="RegisterButton" Text="REGISTER" TextColor="{x:StaticResource AppTextColor}" Grid.Row="{x:StaticResource registerButtonRow}" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="RegisterButtonClicked">
+                            <local:CustomButton x:Name="RegisterButton" Text="REGISTER" TextColor="{x:StaticResource AppTextColor}" Grid.Row="{x:StaticResource registerButtonRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="RegisterButtonClicked">
                             </local:CustomButton>
 
-                                <StackLayout Orientation="Horizontal" Grid.Row="{x:StaticResource OTPRow}" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="End">
+                                <StackLayout Orientation="Horizontal" Grid.Row="{x:StaticResource OTPRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" HorizontalOptions="Center" VerticalOptions="End">
 
                                 <BoxView Color="{StaticResource HeadingTextColor}" HeightRequest="1" WidthRequest="30" HorizontalOptions="End" VerticalOptions="Center"></BoxView>
                                 <local:CustomLabel Text="I have OTP" TextColor="{StaticResource HeadingTextColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">

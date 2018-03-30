@@ -1,13 +1,5 @@
 ﻿<Properties StartupConfiguration="{CA118C24-945C-4573-A7E8-5A8740EB83C4}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="YenCash/Views/SelectQuizSubject.xaml.cs">
-    <Files>
-      <File FileName="YenCash/Views/SelectQuizSubject.xaml" Line="86" Column="15" />
-      <File FileName="YenCash/Views/SelectQuizSubject.xaml.cs" Line="14" Column="10" />
-      <File FileName="YenCash/Views/TestView.xaml.cs" Line="18" Column="14" />
-      <File FileName="YenCash/App.xaml.cs" Line="3" Column="18" />
-      <File FileName="../../../../DevRabbitProjects/OnePOS_Inventory/OnePosInventory/OnePosInventory/Views/Domains.xaml.cs" Line="177" Column="34" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -15,6 +15,11 @@ namespace YenCash
         public UserVerification()
         {
             InitializeComponent();
+
+            var height = (App.screenHeight * 1) / 100;
+            var width = (App.screenWidth * 1) / 100;
+
+            pageTitle.FontSize = width * 6;
         }
 
         private async void NavigationTapped(object sender, EventArgs e)

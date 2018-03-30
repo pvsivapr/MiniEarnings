@@ -90,6 +90,7 @@
                         <Grid x:Name="gridDataInput" BackgroundColor="Transparent" Padding="10,10,10,10" ColumnSpacing="10" RowSpacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
                             <Grid.RowDefinitions>
                                     <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
                                 <!--<RowDefinition Height="Auto"/>-->
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
@@ -101,14 +102,16 @@
                                     <ResourceDictionary>
                                         <x:Int32 x:Key="UserProfileRow">0</x:Int32>
                                         <x:Int32 x:Key="UserProfileColumn">0</x:Int32>
+                                        <x:Int32 x:Key="ChangePasswordRow">0</x:Int32>
+                                        <x:Int32 x:Key="ChangePasswordColumn">1</x:Int32>
                                         <x:Int32 x:Key="PointsEarnedRow">0</x:Int32>
-                                        <x:Int32 x:Key="PointsEarnedColumn">1</x:Int32>
-                                        <x:Int32 x:Key="FAQRow">0</x:Int32>
-                                        <x:Int32 x:Key="FAQColumn">2</x:Int32>
+                                        <x:Int32 x:Key="PointsEarnedColumn">2</x:Int32>
+                                        <x:Int32 x:Key="FAQRow">1</x:Int32>
+                                        <x:Int32 x:Key="FAQColumn">0</x:Int32>
                                         <x:Int32 x:Key="AboutUsRow">1</x:Int32>
-                                        <x:Int32 x:Key="AboutUsColumn">0</x:Int32>
+                                        <x:Int32 x:Key="AboutUsColumn">1</x:Int32>
                                         <x:Int32 x:Key="SudokuRow">1</x:Int32>
-                                        <x:Int32 x:Key="SudokuColumn">1</x:Int32>
+                                        <x:Int32 x:Key="SudokuColumn">2</x:Int32>
                                         <!--<x:Int32 x:Key="registerButtonRow">5</x:Int32>-->
                                     </ResourceDictionary>
                                 </Grid.Resources>
@@ -122,6 +125,18 @@
                                 <BoxView Grid.Column="{x:StaticResource UserProfileColumn}" Grid.Row="{x:StaticResource UserProfileRow}" Style="{x:StaticResource boxIconOverlay}">
                                     <BoxView.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="UserProfileTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource ChangePasswordColumn}" Grid.Row="{x:StaticResource ChangePasswordRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageChangePassword" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="ChangePassword" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource ChangePasswordColumn}" Grid.Row="{x:StaticResource ChangePasswordRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChangePasswordTapped"/>
                                     </BoxView.GestureRecognizers>
                                 </BoxView>
 

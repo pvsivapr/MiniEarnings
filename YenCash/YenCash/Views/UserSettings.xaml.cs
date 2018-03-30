@@ -22,6 +22,9 @@ namespace YenCash
             imageUserProfile.HeightRequest = imageMetrices;
             imageUserProfile.WidthRequest = imageMetrices;
 
+            imageChangePassword.HeightRequest = imageMetrices;
+            imageChangePassword.WidthRequest = imageMetrices;
+
             imagePointsEarned.HeightRequest = imageMetrices;
             imagePointsEarned.WidthRequest = imageMetrices;
 
@@ -30,6 +33,7 @@ namespace YenCash
 
             imageAboutUs.HeightRequest = imageMetrices;
             imageAboutUs.WidthRequest = imageMetrices;
+
 
             //imageSudoku.HeightRequest = imageMetrices;
             //imageSudoku.WidthRequest = imageMetrices;
@@ -76,11 +80,25 @@ namespace YenCash
             //stackLoader.IsVisible = false;
         }
 
+        private async void ChangePasswordTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                //await Navigation.PushModalAsync(new UserProfile());
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+
         private async void PointsEarnedTapped(object sender, EventArgs e)
         {
             try
             {
-                
+                //await Navigation.PushModalAsync(new UserProfile());
             }
             catch (Exception ex)
             {
@@ -92,7 +110,7 @@ namespace YenCash
         {
             try
             {
-
+                //await Navigation.PushModalAsync(new UserProfile());
             }
             catch (Exception ex)
             {
@@ -104,7 +122,7 @@ namespace YenCash
         {
             try
             {
-                
+                //await Navigation.PushModalAsync(new UserProfile());
             }
             catch (Exception ex)
             {
@@ -116,7 +134,7 @@ namespace YenCash
         {
             try
             {
-
+                //await Navigation.PushModalAsync(new UserProfile());
             }
             catch (Exception ex)
             {

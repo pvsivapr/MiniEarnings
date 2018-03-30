@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -13,6 +14,9 @@ namespace YenCash
             var height = (App.screenHeight * 1) / 100;
             var width = (App.screenWidth * 1) / 100;
 
+            entryUserPassword.IsCustomPassword = true;
+            entryUserPassword.IsPassword = true;
+
             gridDataInput.HeightRequest = height * 35;//screenHeight * 30;
 
             btnRegister.WidthRequest = width * 30;
@@ -21,14 +25,13 @@ namespace YenCash
 
             //viewMainHolder.Content = AbsHolder;
 
-            entryUserEmail.Focused += entryUserEmailFocused;
-            entryUserEmail.Unfocused += entryUserEmailUnFocused;
+            //entryUserEmail.Focused += entryUserEmailFocused;
+            //entryUserEmail.Unfocused += entryUserEmailUnFocused;
 
-            entryUserPassword.Focused += entryUserPasswordFocused;
-            entryUserPassword.Unfocused += entryUserPasswordUnFocused;
+            //entryUserPassword.Focused += entryUserPasswordFocused;
+            //entryUserPassword.Unfocused += entryUserPasswordUnFocused;
 
         }
-
 
         private void entryUserEmailFocused(object sender, FocusEventArgs e)
         {
@@ -78,6 +81,46 @@ namespace YenCash
             }
         }
 
+
+
+        private void MobileNumberEdited(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                var mobileNumber = e.NewTextValue;
+                if (mobileNumber.Length > 10)
+                {
+                    entryUserMobile.Text = entryUserMobile.Text.Remove((entryUserMobile.Text.Length) - 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
+
+        private async void PasswordVisibilityClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                if (entryUserPassword.IsPassword)
+                {
+                    entryUserPassword.IsCustomPassword = false;
+                    entryUserPassword.IsPassword = false;
+                }
+                else
+                {
+                    entryUserPassword.IsCustomPassword = true;
+                    entryUserPassword.IsPassword = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
+
+
         private async void LoginButtonClicked(object sender, EventArgs e)
         {
             //stackLoader.IsVisible = true;
@@ -103,10 +146,25 @@ namespace YenCash
 
         private async Task<bool> IsFormValid()
         {
-            bool returnValue;
+            bool returnValue = false;
             try
             {
-                returnValue = true;
+                if (string.IsNullOrEmpty(entryUserMobile.Text))
+                {
+                    await DisplayAlertMessage("Mobile Number cannot be empty");
+                }
+                else if (!(Regex.IsMatch(entryUserMobile.Text, "^[1-9][0-9]{9}$")))
+                {
+                    await DisplayAlertMessage("Mobile Number is not valid, please enter a valid mobile number");
+                }
+                else if (string.IsNullOrEmpty(entryUserPassword.Text))
+                {
+                    await DisplayAlertMessage("Password cannot be empty");
+                }
+                else
+                {
+                    returnValue = true;
+                }
             }
             catch(Exception ex)
             {
@@ -114,6 +172,19 @@ namespace YenCash
                 PrintLog.PublishLog(ex);
             }
             return returnValue;
+        }
+
+        private async Task<bool> DisplayAlertMessage(string msg)
+        {
+            try
+            {
+                await DisplayAlert("Alert", msg, "Cancel");
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            return true;
         }
 
         private async void RegisterButtonClicked(object sender, EventArgs e)

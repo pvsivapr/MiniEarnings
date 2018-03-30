@@ -34,7 +34,7 @@ namespace YenCash
                     {
                         return;
                     }
-                    Navigation.PushModalAsync(new Quiz());
+                    Navigation.PushModalAsync(new Quiz(selectedItem));
                     ((ListView)sender).SelectedItem = null;
                 }
                 catch (Exception ex)
@@ -50,107 +50,6 @@ namespace YenCash
             //gridDataInput.HeightRequest = height * 25;
 
         }
-
-        public void GetListViewData()
-        {
-            List<QuizTopic> quizTopics;
-            try
-            {
-                /*
-                quizTopics = new ObservableCollection<List<QuizTopic>>()
-                {
-                    new List<QuizTopic>()
-                    {
-                        new QuizTopic(){TopicName="Topic01"},
-                        new QuizTopic(){TopicName="Topic02"},
-                        new QuizTopic(){TopicName="Topic03"},
-                        new QuizTopic(){TopicName="Topic04"},
-                        new QuizTopic(){TopicName="Topic05"},
-                        new QuizTopic(){TopicName="Topic06"}
-                    },
-                    new List<QuizTopic>()
-                    {
-                        new QuizTopic(){TopicName="Topic11"},
-                        new QuizTopic(){TopicName="Topic12"},
-                        new QuizTopic(){TopicName="Topic13"},
-                        new QuizTopic(){TopicName="Topic14"},
-                        new QuizTopic(){TopicName="Topic15"},
-                        new QuizTopic(){TopicName="Topic16"}
-                    },
-                    new List<QuizTopic>()
-                    {
-                        new QuizTopic(){TopicName="Topic21"},
-                        new QuizTopic(){TopicName="Topic22"},
-                        new QuizTopic(){TopicName="Topic23"},
-                        new QuizTopic(){TopicName="Topic24"},
-                        new QuizTopic(){TopicName="Topic25"},
-                        new QuizTopic(){TopicName="Topic26"}
-                    },
-                    new List<QuizTopic>()
-                    {
-                        new QuizTopic(){TopicName="Topic31"},
-                        new QuizTopic(){TopicName="Topic32"},
-                        new QuizTopic(){TopicName="Topic33"},
-                        new QuizTopic(){TopicName="Topic34"},
-                        new QuizTopic(){TopicName="Topic35"},
-                        new QuizTopic(){TopicName="Topic36"}
-                    }
-                };
-                */
-
-                quizTopics = new List<QuizTopic>()
-                {
-                    new QuizTopic(){GroupName="Group0", TopicName="Topic01"},
-                    new QuizTopic(){GroupName="Group0", TopicName="Topic02"},
-                    new QuizTopic(){GroupName="Group0", TopicName="Topic03"},
-                    new QuizTopic(){GroupName="Group0", TopicName="Topic04"},
-                    new QuizTopic(){GroupName="Group0", TopicName="Topic05"},
-                    new QuizTopic(){GroupName="Group0", TopicName="Topic06"},
-                    new QuizTopic(){GroupName="Group1", TopicName="Topic11"},
-                    new QuizTopic(){GroupName="Group1", TopicName="Topic12"},
-                    new QuizTopic(){GroupName="Group1", TopicName="Topic13"},
-                    new QuizTopic(){GroupName="Group1", TopicName="Topic14"},
-                    new QuizTopic(){GroupName="Group1", TopicName="Topic15"},
-                    new QuizTopic(){GroupName="Group1", TopicName="Topic16"},
-                    new QuizTopic(){GroupName="Group2", TopicName="Topic21"},
-                    new QuizTopic(){GroupName="Group2", TopicName="Topic22"},
-                    new QuizTopic(){GroupName="Group2", TopicName="Topic23"},
-                    new QuizTopic(){GroupName="Group2", TopicName="Topic24"},
-                    new QuizTopic(){GroupName="Group2", TopicName="Topic25"},
-                    new QuizTopic(){GroupName="Group2", TopicName="Topic26"},
-                    new QuizTopic(){GroupName="Group3", TopicName="Topic31"},
-                    new QuizTopic(){GroupName="Group3", TopicName="Topic32"},
-                    new QuizTopic(){GroupName="Group3", TopicName="Topic33"},
-                    new QuizTopic(){GroupName="Group3", TopicName="Topic34"},
-                    new QuizTopic(){GroupName="Group3", TopicName="Topic35"},
-                    new QuizTopic(){GroupName="Group3", TopicName="Topic36"}
-                };
-
-                List<string> groupNames = quizTopics.Select(X => X.GroupName).Distinct().OrderBy(s => s).ToList();
-                quizGroup = new ObservableCollection<QuizGroup>();
-                foreach(var selectedGroup in groupNames)
-                {
-                    var selectedTopics = quizTopics.Where(X => X.GroupName == selectedGroup).ToList();
-                    var _quizGroup = new QuizGroup()
-                    {
-                        GroupName = selectedGroup
-                    };
-                    foreach (var topics in selectedTopics)
-                    {
-                        _quizGroup.Add(topics);
-                    }
-                    quizGroup.Add(_quizGroup);
-                }
-
-                listQuizTopics.ItemsSource = quizGroup;
-
-            }
-            catch (Exception ex)
-            {
-                PrintLog.PublishLog(ex);
-            }
-        }
-
 
         private void SearchData(object sender, TextChangedEventArgs e)
         {
@@ -191,7 +90,7 @@ namespace YenCash
 
             try
             {
-                var searchValue = e.NewTextValue;
+                var searchValue = (e.NewTextValue).ToLower();
                 if (string.IsNullOrWhiteSpace(e.NewTextValue) && e.NewTextValue == "" && e.NewTextValue == null)
                 {
                     listQuizTopics.ItemsSource = quizGroup;
@@ -258,6 +157,65 @@ namespace YenCash
                 PrintLog.PublishLog(ex);
             }
         }
+
+        public void GetListViewData()
+        {
+            List<QuizTopic> quizTopics;
+            try
+            {
+
+                quizTopics = new List<QuizTopic>()
+                {
+                    new QuizTopic(){GroupName="Group0", TopicName="Topic01"},
+                    new QuizTopic(){GroupName="Group0", TopicName="Topic02"},
+                    new QuizTopic(){GroupName="Group0", TopicName="Topic03"},
+                    new QuizTopic(){GroupName="Group0", TopicName="Topic04"},
+                    new QuizTopic(){GroupName="Group0", TopicName="Topic05"},
+                    new QuizTopic(){GroupName="Group0", TopicName="Topic06"},
+                    new QuizTopic(){GroupName="Group1", TopicName="Topic11"},
+                    new QuizTopic(){GroupName="Group1", TopicName="Topic12"},
+                    new QuizTopic(){GroupName="Group1", TopicName="Topic13"},
+                    new QuizTopic(){GroupName="Group1", TopicName="Topic14"},
+                    new QuizTopic(){GroupName="Group1", TopicName="Topic15"},
+                    new QuizTopic(){GroupName="Group1", TopicName="Topic16"},
+                    new QuizTopic(){GroupName="Group2", TopicName="Topic21"},
+                    new QuizTopic(){GroupName="Group2", TopicName="Topic22"},
+                    new QuizTopic(){GroupName="Group2", TopicName="Topic23"},
+                    new QuizTopic(){GroupName="Group2", TopicName="Topic24"},
+                    new QuizTopic(){GroupName="Group2", TopicName="Topic25"},
+                    new QuizTopic(){GroupName="Group2", TopicName="Topic26"},
+                    new QuizTopic(){GroupName="Group3", TopicName="Topic31"},
+                    new QuizTopic(){GroupName="Group3", TopicName="Topic32"},
+                    new QuizTopic(){GroupName="Group3", TopicName="Topic33"},
+                    new QuizTopic(){GroupName="Group3", TopicName="Topic34"},
+                    new QuizTopic(){GroupName="Group3", TopicName="Topic35"},
+                    new QuizTopic(){GroupName="Group3", TopicName="Topic36"}
+                };
+
+                List<string> groupNames = quizTopics.Select(X => X.GroupName).Distinct().OrderBy(s => s).ToList();
+                quizGroup = new ObservableCollection<QuizGroup>();
+                foreach (var selectedGroup in groupNames)
+                {
+                    var selectedTopics = quizTopics.Where(X => X.GroupName == selectedGroup).ToList();
+                    var _quizGroup = new QuizGroup()
+                    {
+                        GroupName = selectedGroup
+                    };
+                    foreach (var topics in selectedTopics)
+                    {
+                        _quizGroup.Add(topics);
+                    }
+                    quizGroup.Add(_quizGroup);
+                }
+
+                listQuizTopics.ItemsSource = quizGroup;
+
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
     }
 
     public class QuizGroup : ObservableCollection<QuizTopic>
@@ -291,7 +249,7 @@ namespace YenCash
             StackLayout stackHolder = new StackLayout()
             {
                 Children = { labelGroupName },
-                BackgroundColor = Color.Gray,
+                BackgroundColor = (Color)Application.Current.Resources["HeaderColor"],
                 HeightRequest = ((App.screenHeight) * 5) / 100,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand
@@ -320,6 +278,7 @@ namespace YenCash
             StackLayout stackHolder = new StackLayout()
             {
                 Children = { labelTopicName },
+                BackgroundColor = (Color)Application.Current.Resources["PageBackgroundColor"],
                 HeightRequest = ((App.screenHeight) * 8) / 100,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand
