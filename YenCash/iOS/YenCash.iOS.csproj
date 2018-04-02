@@ -165,6 +165,7 @@
     <Compile Include="SQLiteDB\SQLite_IOS.cs" />
     <Compile Include="CustomControls\AdBanneriOS.cs" />
     <Compile Include="DependencyServices\AdInterstitialService.cs" />
+    <Compile Include="DependencyServices\ShareService.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\camera_crop_height.png" />
