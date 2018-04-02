@@ -79,6 +79,8 @@
     <Compile Include="CustomControls\EditorFrame.cs" />
     <Compile Include="CustomControls\ImageCircle.cs" />
     <Compile Include="CustomControls\PageSlider.cs" />
+    <Compile Include="DependencyServices\IShareService.cs" />
+    <Compile Include="DependencyServices\SharePage.cs" />
     <Compile Include="RESTServiceLayer\HttpClientSource.cs" />
     <Compile Include="Utilities\AppGlobalVariables.cs" />
     <Compile Include="Utilities\Constants.cs" />

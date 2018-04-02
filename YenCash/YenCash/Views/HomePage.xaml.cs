@@ -111,9 +111,19 @@ namespace YenCash
         private async void SocialSharingTapped(object sender, EventArgs e)
         {
             //stackLoader.IsVisible = true;
+
             try
             {
-                await Navigation.PushModalAsync(new SocialMedia());
+                /*
+                Image img = new Image()
+                {
+                    Source = "http://superwall.us/wallpaper/proposing_love_machine_rose_horse_robo_lady-oCrC.jpg",//"http://www.wintellect.com/devcenter/wp-content/uploads/2013/10/Wintellect_logo.gif",
+                    Aspect = Aspect.AspectFit
+                };
+                */
+                //DependencyService.Get<IShareService>().Share(" ", "Hi Gopi. How are you?", img.Source);
+                //await Navigation.PushModalAsync(new SocialMedia());
+                await Navigation.PushModalAsync(new SharePage());
             }
             catch (Exception ex)
             {

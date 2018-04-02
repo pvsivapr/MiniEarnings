@@ -162,6 +162,7 @@
     <Compile Include="CustomControls\ImageCircleRender.cs" />
     <None Include="SplashActivity.cs" />
     <None Include="CustomControls\LoginRenderer.cs" />
+    <Compile Include="DependencyServices\ShareService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,10 +230,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Badge_Rect.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DependencyServices\" />
-    <Folder Include="SQliteDB\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets')" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets')" />
