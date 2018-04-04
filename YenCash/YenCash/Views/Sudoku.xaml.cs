@@ -22,7 +22,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PopModalAsync();
+                await Navigation.PopModalAsync(false);
             }
             catch (Exception ex)
             {

@@ -17,9 +17,9 @@ namespace YenCash
 
             //MainPage = new HomePage();
             //MainPage = new TestView();
-            //MainPage = new UserLogin();
+            MainPage = new UserLogin();
             //MainPage = new UserSettings();
-            MainPage = new SharePage();
+            //MainPage = new SharePage();
         }
 
         protected override void OnStart()

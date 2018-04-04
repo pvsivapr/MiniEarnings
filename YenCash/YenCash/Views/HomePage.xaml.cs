@@ -42,7 +42,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new UserSettings());
+                await Navigation.PushModalAsync(new UserSettings(), false);
             }
             catch (Exception ex)
             {
@@ -56,7 +56,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new UserLogin());
+                await Navigation.PushModalAsync(new UserLogin(), false);
             }
             catch (Exception ex)
             {
@@ -70,7 +70,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new Lottery());
+                await Navigation.PushModalAsync(new Lottery(), false);
             }
             catch (Exception ex)
             {
@@ -85,7 +85,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new SelectQuizSubject());
+                await Navigation.PushModalAsync(new SelectQuizSubject(), false);
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new Survey());
+                await Navigation.PushModalAsync(new Survey(), false);
             }
             catch (Exception ex)
             {
@@ -123,7 +123,7 @@ namespace YenCash
                 */
                 //DependencyService.Get<IShareService>().Share(" ", "Hi Gopi. How are you?", img.Source);
                 //await Navigation.PushModalAsync(new SocialMedia());
-                await Navigation.PushModalAsync(new SharePage());
+                await Navigation.PushModalAsync(new SharePage(), false);
             }
             catch (Exception ex)
             {
@@ -137,7 +137,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new Sudoku());
+                await Navigation.PushModalAsync(new Sudoku(), false);
             }
             catch (Exception ex)
             {

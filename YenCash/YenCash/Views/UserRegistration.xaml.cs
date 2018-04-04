@@ -93,7 +93,7 @@ namespace YenCash
         {
             try
             {
-                Navigation.PushModalAsync(new UserVerification());
+                Navigation.PushModalAsync(new UserVerification(), false);
             }
             catch (Exception ex)
             {
@@ -108,7 +108,7 @@ namespace YenCash
                 var isValid = await IsFormValid();
                 if (isValid)
                 {
-                    Navigation.PushModalAsync(new UserVerification());
+                    Navigation.PushModalAsync(new UserVerification(), false);
                     //Navigation.PushModalAsync(new HomePage());
                 }
                 else
@@ -186,7 +186,7 @@ namespace YenCash
         {
             try
             {
-                Navigation.PushModalAsync(new UserLogin());
+                Navigation.PushModalAsync(new UserLogin(), false);
             }
             catch (Exception ex)
             {

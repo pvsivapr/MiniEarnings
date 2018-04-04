@@ -31,7 +31,7 @@ namespace YenCash
         {
             try
             {
-                Navigation.PopModalAsync();
+                Navigation.PopModalAsync(false);
             }
             catch (Exception ex)
             {
@@ -130,7 +130,7 @@ namespace YenCash
                 var isValid = await IsFormValid();
                 if (isValid)
                 {
-                    Navigation.PopModalAsync();
+                    Navigation.PopModalAsync(false);
                 }
                 else
                 {
@@ -187,7 +187,7 @@ namespace YenCash
         {
             try
             {
-                Navigation.PushModalAsync(new UserLogin());
+                Navigation.PushModalAsync(new UserLogin(), false);
             }
             catch (Exception ex)
             {

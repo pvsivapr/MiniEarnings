@@ -55,7 +55,7 @@ namespace YenCash
         {
             try
             {
-                Navigation.PopModalAsync();
+                Navigation.PopModalAsync(false);
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace YenCash
         {
             try
             {
-                Navigation.PushModalAsync(new UserLogin());
+                Navigation.PushModalAsync(new UserLogin(), false);
             }
             catch (Exception ex)
             {
@@ -80,7 +80,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new UserProfile());
+                await Navigation.PushModalAsync(new UserProfile(), false);
             }
             catch (Exception ex)
             {
@@ -94,7 +94,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new ChangePassword());
+                await Navigation.PushModalAsync(new ChangePassword(), false);
             }
             catch (Exception ex)
             {

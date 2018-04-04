@@ -34,7 +34,7 @@ namespace YenCash
                     {
                         return;
                     }
-                    Navigation.PushModalAsync(new Quiz(selectedItem));
+                    Navigation.PushModalAsync(new Quiz(selectedItem), false);
                     ((ListView)sender).SelectedItem = null;
                 }
                 catch (Exception ex)
@@ -125,7 +125,7 @@ namespace YenCash
         {
             try
             {
-                Navigation.PopModalAsync();
+                Navigation.PopModalAsync(false);
             }
             catch (Exception ex)
             {

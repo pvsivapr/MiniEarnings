@@ -215,7 +215,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new UserRegistration());
+                await Navigation.PushModalAsync(new UserRegistration(), false);
             }
             catch (Exception ex)
             {

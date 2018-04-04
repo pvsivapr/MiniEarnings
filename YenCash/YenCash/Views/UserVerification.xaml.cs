@@ -26,7 +26,7 @@ namespace YenCash
         {
             try
             {
-                Navigation.PopModalAsync();
+                Navigation.PopModalAsync(false);
             }
             catch (Exception ex)
             {
