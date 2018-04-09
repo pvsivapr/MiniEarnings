@@ -84,19 +84,21 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="8*"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Grid.Resources>
                                     <ResourceDictionary>
                                         <x:Int32 x:Key="questionRow">0</x:Int32>
                                         <x:Int32 x:Key="choice1Row">1</x:Int32>
-                                        <x:Int32 x:Key="choice2Row">2</x:Int32>
-                                        <x:Int32 x:Key="choice3Row">3</x:Int32>
-                                        <x:Int32 x:Key="choice4Row">4</x:Int32>
+                                        <x:Int32 x:Key="choice2Row">1</x:Int32>
+                                        <x:Int32 x:Key="choice3Row">2</x:Int32>
+                                        <x:Int32 x:Key="choice4Row">2</x:Int32>
                                     </ResourceDictionary>
                                 </Grid.Resources>
 
-                                <local:CustomLabel x:Name="labelQuestion" Text="" TextColor="{x:StaticResource AppTextColor}" Grid.Row="{x:StaticResource questionRow}" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></local:CustomLabel>
+                                <local:CustomLabel x:Name="labelQuestion" Text="" TextColor="{x:StaticResource AppTextColor}" Grid.Row="{x:StaticResource questionRow}" Grid.Column="0" Grid.ColumnSpan="4" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></local:CustomLabel>
 
                                 <StackLayout Grid.Row="{x:StaticResource choice1Row}" Grid.Column="0" Style="{x:StaticResource stackImageChoice}">
                                     <Image x:Name="imageChoice1" Style="{x:StaticResource imageChoice}">
@@ -107,14 +109,14 @@
                                 </StackLayout>
                                 <local:CustomLabel x:Name="labelChoice1" Text="" Grid.Row="{x:StaticResource choice1Row}" Grid.Column="1" Style="{x:StaticResource labelChoice}"></local:CustomLabel>
 
-                                <StackLayout Grid.Row="{x:StaticResource choice2Row}" Grid.Column="0" Style="{x:StaticResource stackImageChoice}">
+                                <StackLayout Grid.Row="{x:StaticResource choice2Row}" Grid.Column="2" Style="{x:StaticResource stackImageChoice}">
                                     <Image x:Name="imageChoice2" Style="{x:StaticResource imageChoice}">
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Choice2Tapped"/>
                                         </Image.GestureRecognizers>
                                     </Image>
                                 </StackLayout>
-                                <local:CustomLabel x:Name="labelChoice2" Text="" Grid.Row="{x:StaticResource choice2Row}" Grid.Column="1" Style="{x:StaticResource labelChoice}"></local:CustomLabel>
+                                <local:CustomLabel x:Name="labelChoice2" Text="" Grid.Row="{x:StaticResource choice2Row}" Grid.Column="3" Style="{x:StaticResource labelChoice}"></local:CustomLabel>
 
                                 <StackLayout Grid.Row="{x:StaticResource choice3Row}" Grid.Column="0" Style="{x:StaticResource stackImageChoice}">
                                     <Image x:Name="imageChoice3" Style="{x:StaticResource imageChoice}">
@@ -125,19 +127,25 @@
                                 </StackLayout>
                                 <local:CustomLabel x:Name="labelChoice3" Text="" Grid.Row="{x:StaticResource choice3Row}" Grid.Column="1" Style="{x:StaticResource labelChoice}"></local:CustomLabel>
 
-                                <StackLayout Grid.Row="{x:StaticResource choice4Row}" Grid.Column="0" Style="{x:StaticResource stackImageChoice}">
+                                <StackLayout Grid.Row="{x:StaticResource choice4Row}" Grid.Column="2" Style="{x:StaticResource stackImageChoice}">
                                     <Image x:Name="imageChoice4" Style="{x:StaticResource imageChoice}">
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Choice4Tapped"/>
                                         </Image.GestureRecognizers>
                                     </Image>
                                 </StackLayout>
-                                <local:CustomLabel x:Name="labelChoice4" Text="" Grid.Row="{x:StaticResource choice4Row}" Grid.Column="1" Style="{x:StaticResource labelChoice}"></local:CustomLabel>
+                                <local:CustomLabel x:Name="labelChoice4" Text="" Grid.Row="{x:StaticResource choice4Row}" Grid.Column="3" Style="{x:StaticResource labelChoice}"></local:CustomLabel>
 
                             </Grid>
 
-                            <local:CustomButton x:Name="SubmitButton" Text="SUBMIT" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="Maroon" Grid.Row="1" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Clicked="SubmitButtonClicked">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                <local:CustomButton x:Name="PreviousButton" Text="PREV" IsVisible="false" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="Maroon" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Clicked="PreviousButtonClicked">
                             </local:CustomButton>
+                                <local:CustomButton x:Name="NextButton" Text="NEXT" IsVisible="true" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="Maroon" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Clicked="NextButtonClicked">
+                            </local:CustomButton>
+                            <local:CustomButton x:Name="SubmitButton" Text="SUBMIT" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="Maroon" Grid.Row="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Clicked="SubmitButtonClicked">
+                            </local:CustomButton>
+                            </StackLayout>
 
                         </StackLayout>
                                                 

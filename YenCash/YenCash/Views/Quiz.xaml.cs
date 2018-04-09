@@ -12,11 +12,12 @@ namespace YenCash
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Quiz : ContentPage
     {
-        public int changeDimension, defaultdimension;
+        public int changeDimension, defaultdimension, totalQuestions;
         public string SelectedOption="";
         QuizTopic quizTopic;
-        public int questioNumber, correctAnswers = 0;
+        public int questioNumber, correctAnswers = 0, unAttemptedQuestions = 0;
         public QuizObject quizObject;
+        public bool isInReviewMode;
 
         public Quiz(QuizTopic selectedTopic)
         {
@@ -71,6 +72,15 @@ namespace YenCash
                 //imageChoice1.HeightRequest = changeDimension;
                 //imageChoice1.WidthRequest = changeDimension;
                 SelectedOption = labelChoice1.Text;
+
+                if (!string.IsNullOrEmpty(SelectedOption))
+                {
+                    quizObject.questions_set[questioNumber].UserAnswer = SelectedOption;
+                }
+                else
+                {
+
+                }
             }
             catch (Exception ex)
             {
@@ -87,6 +97,14 @@ namespace YenCash
                 //imageChoice2.HeightRequest = changeDimension;
                 //imageChoice2.WidthRequest = changeDimension;
                 SelectedOption = labelChoice2.Text;
+                if (!string.IsNullOrEmpty(SelectedOption))
+                {
+                    quizObject.questions_set[questioNumber].UserAnswer = SelectedOption;
+                }
+                else
+                {
+
+                }
             }
             catch (Exception ex)
             {
@@ -103,6 +121,14 @@ namespace YenCash
                 //imageChoice3.HeightRequest = changeDimension;
                 //imageChoice3.WidthRequest = changeDimension;
                 SelectedOption = labelChoice3.Text;
+                if (!string.IsNullOrEmpty(SelectedOption))
+                {
+                    quizObject.questions_set[questioNumber].UserAnswer = SelectedOption;
+                }
+                else
+                {
+
+                }
             }
             catch (Exception ex)
             {
@@ -119,6 +145,14 @@ namespace YenCash
                 //imageChoice4.HeightRequest = changeDimension;
                 //imageChoice4.WidthRequest = changeDimension;
                 SelectedOption = labelChoice4.Text;
+                if (!string.IsNullOrEmpty(SelectedOption))
+                {
+                    quizObject.questions_set[questioNumber].UserAnswer = SelectedOption;
+                }
+                else
+                {
+
+                }
             }
             catch (Exception ex)
             {
@@ -135,6 +169,14 @@ namespace YenCash
                 imageChoice2.Source = ImageSource.FromFile("RadioOff.png");
                 imageChoice3.Source = ImageSource.FromFile("RadioOff.png");
                 imageChoice4.Source = ImageSource.FromFile("RadioOff.png");
+
+                if (isInReviewMode)
+                {
+                    labelChoice1.TextColor = Color.White;
+                    labelChoice2.TextColor = Color.White;
+                    labelChoice3.TextColor = Color.White;
+                    labelChoice4.TextColor = Color.White;
+                }
             }
             catch (Exception ex)
             {
@@ -152,12 +194,13 @@ namespace YenCash
                 var responseData = await GetQuestions();
                 var questionsData = Newtonsoft.Json.JsonConvert.DeserializeObject<QuizObject>(responseData);
                 quizObject = questionsData;
+                totalQuestions = quizObject.questions_set.Count();
 
-                labelQuestion.Text = questionsData.questions_set[0].question;
-                labelChoice1.Text = questionsData.questions_set[0].option1;
-                labelChoice2.Text = questionsData.questions_set[0].option2;
-                labelChoice3.Text = questionsData.questions_set[0].option3;
-                labelChoice4.Text = questionsData.questions_set[0].option4;
+                labelQuestion.Text = quizObject.questions_set[0].Question;
+                labelChoice1.Text = quizObject.questions_set[0].Option1;
+                labelChoice2.Text = quizObject.questions_set[0].Option2;
+                labelChoice3.Text = quizObject.questions_set[0].Option3;
+                labelChoice4.Text = quizObject.questions_set[0].Option4;
 
                 questioNumber = 0;
 
@@ -183,11 +226,11 @@ namespace YenCash
             {
                 questions = "{\"questions_set\":" +
                     "[" +
-                    "{\"question\" : \"Which is the name of the robot that was given the saudi arabic Nationality ?\",\"option1\":\"ELESA\",\"option2\":\"Sofia\",\"option3\":\"Jane\",\"option4\":\"ChatBo\",\"answer\":\"Sofia\"}," +
-                    "{\"question\" : \"Which of the following features of Indian temples resembles pylons of the Egyptian temples?\",\"option1\":\"Lat\",\"option2\":\"Vimana\",\"option3\":\"Gopura\",\"option4\":\"Shikara\",\"answer\":\"Gopura\"}," +
-                    "{\"question\" : \"Which crop is sown on the largest area in India? \",\"option1\":\"Rice\",\"option2\":\"Wheat\",\"option3\":\"Sugarcane\",\"option4\":\"Maize\",\"answer\":\"Rice\"}," +
-                    "{\"question\" : \"A persistent fall in the general price level of goods and services is known as __:\",\"option1\":\"Deflation\",\"option2\":\"Disinflation\",\"option3\":\"StagFlation\",\"option4\":\"Depression\",\"answer\":\"Deflation\"}," +
-                    "{\"question\" : \"The currency notes are printed in __: \",\"option1\":\"New Delhi\",\"option2\":\"Nasik\",\"option3\":\"Nagpur\",\"option4\":\"Bombay\",\"answer\":\"Nasik\"}" +
+                    "{\"Question\" : \"Which is the name of the robot that was given the saudi arabic Nationality ?\",\"Option1\":\"ELESA\",\"Option2\":\"Sofia\",\"Option3\":\"Jane\",\"Option4\":\"ChatBo\",\"UserAnswer\":\"\",\"Answer\":\"Sofia\"}," +
+                    "{\"Question\" : \"Which of the following features of Indian temples resembles pylons of the Egyptian temples?\",\"Option1\":\"Lat\",\"Option2\":\"Vimana\",\"Option3\":\"Gopura\",\"Option4\":\"Shikara\",\"UserAnswer\":\"\",\"Answer\":\"Gopura\"}," +
+                    "{\"Question\" : \"Which crop is sown on the largest area in India? \",\"Option1\":\"Rice\",\"Option2\":\"Wheat\",\"Option3\":\"Sugarcane\",\"Option4\":\"Maize\",\"UserAnswer\":\"\",\"Answer\":\"Rice\"}," +
+                    "{\"Question\" : \"A persistent fall in the general price level of goods and services is known as __:\",\"Option1\":\"Deflation\",\"Option2\":\"Disinflation\",\"Option3\":\"StagFlation\",\"Option4\":\"Depression\",\"UserAnswer\":\"\",\"Answer\":\"Deflation\"}," +
+                    "{\"Question\" : \"The currency notes are printed in __: \",\"Option1\":\"New Delhi\",\"Option2\":\"Nasik\",\"Option3\":\"Nagpur\",\"Option4\":\"Bombay\",\"UserAnswer\":\"\",\"Answer\":\"Nasik\"}" +
                     "]}";
             }
             catch (Exception ex)
@@ -198,58 +241,20 @@ namespace YenCash
             return questions;
         }
 
-        private async void SubmitButtonClicked(object sender, EventArgs e)
+        private async void PreviousButtonClicked(object sender, EventArgs e)
         {
             //stackLoader.IsVisible = true;
             try
             {
-                if(string.IsNullOrEmpty(SelectedOption))
+                questioNumber--;
+                GetQuestion(questioNumber);
+                if(questioNumber <= 0)
                 {
-                    await DisplayAlert("Alert", "Cannot submit without selecting any option", "Ok");
+                    PreviousButton.IsVisible = false;
                 }
-                else
+                if(NextButton.IsVisible == false)
                 {
-                    var shallSubmitOption = await DisplayAlert("Alert", "Shall we submit your answer", "Ok", "Cancel");
-                    if(shallSubmitOption)
-                    {
-                        if(SelectedOption == quizObject.questions_set[questioNumber].answer)
-                        {
-                            correctAnswers++;
-                        }
-
-                        if (questioNumber < 4)
-                        {
-                            GetNextQuestion(questioNumber + 1);
-                        }
-                        else
-                        {
-                            await DisplayAlert("Report", "Your result: " + correctAnswers.ToString() + "/5", "Ok");
-                            var replayChoice = await DisplayAlert("Alert", "Do you want to play again", "Ok", "Cancel");
-                            if(replayChoice == true)
-                            {
-                                correctAnswers = 0;
-                                questioNumber = 0;
-                                await SetDefaultChoice();
-                                await GetPageData();
-                            }
-                            else
-                            {
-                                App.Current.MainPage = new HomePage();
-                            }
-                        }
-                        //if(SelectedOption == "Sofia")
-                        //{
-                        //    await DisplayAlert("Alert", "Congo you made the correct option, you can now move to the next question", "Ok");
-                        //}
-                        //else
-                        //{
-                        //    await DisplayAlert("Alert", "Sorry. Better luck next time", "Ok");
-                        //}
-                    }
-                    else
-                    {
-                        
-                    }
+                    NextButton.IsVisible = true;
                 }
             }
             catch (Exception ex)
@@ -259,18 +264,340 @@ namespace YenCash
             //stackLoader.IsVisible = false;
         }
 
-        private async void GetNextQuestion(int v)
+        private async void NextButtonClicked(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                questioNumber++;
+                GetQuestion(questioNumber);
+                if (questioNumber >= totalQuestions-1)
+                {
+                    NextButton.IsVisible = false;
+                }
+                if (PreviousButton.IsVisible == false)
+                {
+                    PreviousButton.IsVisible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+
+        private async void SubmitButtonClicked(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                //if(string.IsNullOrEmpty(SelectedOption))
+                //{
+                //    await DisplayAlert("Alert", "Cannot submit without selecting any option", "Ok");
+                //}
+                //else
+                //{
+                    var shallSubmitOption = await DisplayAlert("Alert", "Shall we submit your answers", "Ok", "Cancel");
+                if (shallSubmitOption)
+                {
+                    unAttemptedQuestions = 0;
+                    foreach(var item in quizObject.questions_set)
+                    {
+                        if(string.IsNullOrEmpty(item.UserAnswer))
+                        {
+                            unAttemptedQuestions++;
+                        }
+                        else
+                        {
+
+                            if (item.UserAnswer == item.Answer)
+                            {
+                                correctAnswers++;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                    }
+
+                    var results = "Total Questions : " + totalQuestions + "\n" +
+                        "Attempted Questions : " + (totalQuestions - unAttemptedQuestions).ToString() + "\n" +
+                                                                                          "UnAttempted Questions : " + (unAttemptedQuestions).ToString() + "\n" +
+                                                                                          "Correct Answers : " + (correctAnswers).ToString() + "\n" +
+                                                                                          "Wrong Answers : " + ((totalQuestions - unAttemptedQuestions) - correctAnswers).ToString();
+                    var shallReview = await DisplayAlert("Scores of this quiz is :", results, "Review", "Close");
+                    if (shallReview)
+                    {
+                        isInReviewMode = true;
+                        SubmitButton.IsVisible = false;
+                        GetQuestion(0);
+                    }
+                    else
+                    {
+
+                    }
+
+                    //if(SelectedOption == quizObject.questions_set[questioNumber].Answer)
+                    //{
+                    //    correctAnswers++;
+                    //}
+                    //if (questioNumber < 4)
+                    //{
+                    //    //GetQuestion(questioNumber + 1);
+                    //}
+                    //else
+                    //{
+                    //    await DisplayAlert("Report", "Your result: " + correctAnswers.ToString() + "/5", "Ok");
+                    //    var replayChoice = await DisplayAlert("Alert", "Do you want to play again", "Ok", "Cancel");
+                    //    if(replayChoice == true)
+                    //    {
+                    //        correctAnswers = 0;
+                    //        questioNumber = 0;
+                    //        await SetDefaultChoice();
+                    //        await GetPageData();
+                    //    }
+                    //    else
+                    //    {
+                    //        App.Current.MainPage = new HomePage();
+                    //    }
+                    //}
+                    ////if(SelectedOption == "Sofia")
+                    ////{
+                    ////    await DisplayAlert("Alert", "Congo you made the correct option, you can now move to the next question", "Ok");
+                    ////}
+                    ////else
+                    ////{
+                    ////    await DisplayAlert("Alert", "Sorry. Better luck next time", "Ok");
+                    ////}
+                }
+                else
+                {
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+
+        private async void GetQuestion(int v)
         {
             try
             {
-                var responseData = await GetQuestions();
-                var questionsData = Newtonsoft.Json.JsonConvert.DeserializeObject<QuizObject>(responseData);
+                //var responseData = await GetQuestions();
+                //var questionsData = Newtonsoft.Json.JsonConvert.DeserializeObject<QuizObject>(responseData);
                 await SetDefaultChoice();
-                labelQuestion.Text = questionsData.questions_set[v].question;
-                labelChoice1.Text = questionsData.questions_set[v].option1;
-                labelChoice2.Text = questionsData.questions_set[v].option2;
-                labelChoice3.Text = questionsData.questions_set[v].option3;
-                labelChoice4.Text = questionsData.questions_set[v].option4;
+                labelQuestion.Text = quizObject.questions_set[v].Question;
+                labelChoice1.Text = quizObject.questions_set[v].Option1;
+                labelChoice2.Text = quizObject.questions_set[v].Option2;
+                labelChoice3.Text = quizObject.questions_set[v].Option3;
+                labelChoice4.Text = quizObject.questions_set[v].Option4;
+
+
+                if (isInReviewMode)
+                {
+                    if (!string.IsNullOrEmpty(quizObject.questions_set[v].UserAnswer))
+                    {
+                        SelectedOption = quizObject.questions_set[v].UserAnswer;
+                        var correctAnswer = quizObject.questions_set[v].Answer;
+
+                        if ((SelectedOption) == (labelChoice1.Text))
+                        {
+                            //imageChoice1.Source = ImageSource.FromFile("RadioOn.png");
+                            if (SelectedOption == correctAnswer)
+                            {
+                                labelChoice1.TextColor = Color.Green;
+                            }
+                            else
+                            {
+                                labelChoice1.TextColor = Color.Red;
+                                if (correctAnswer == labelChoice2.Text)
+                                {
+                                    labelChoice2.TextColor = Color.Green;
+                                }
+                                else if (correctAnswer == labelChoice3.Text)
+                                {
+                                    labelChoice3.TextColor = Color.Green;
+                                }
+                                else if (correctAnswer == labelChoice4.Text)
+                                {
+                                    labelChoice4.TextColor = Color.Green;
+                                }
+                                else
+                                {
+
+                                }
+                            }
+
+                        }
+                        else if ((SelectedOption) == (labelChoice2.Text))
+                        {
+                            //imageChoice1.Source = ImageSource.FromFile("RadioOn.png");
+                            if (SelectedOption == correctAnswer)
+                            {
+                                labelChoice2.TextColor = Color.Green;
+                            }
+                            else
+                            {
+                                labelChoice2.TextColor = Color.Red;
+                                if (correctAnswer == labelChoice1.Text)
+                                {
+                                    labelChoice1.TextColor = Color.Green;
+                                }
+                                else if (correctAnswer == labelChoice3.Text)
+                                {
+                                    labelChoice3.TextColor = Color.Green;
+                                }
+                                else if (correctAnswer == labelChoice4.Text)
+                                {
+                                    labelChoice4.TextColor = Color.Green;
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        }
+                        else if ((SelectedOption) == (labelChoice3.Text))
+                        {
+                            //imageChoice1.Source = ImageSource.FromFile("RadioOn.png");
+                            if (SelectedOption == correctAnswer)
+                            {
+                                labelChoice3.TextColor = Color.Green;
+                            }
+                            else
+                            {
+                                labelChoice3.TextColor = Color.Red;
+                                if (correctAnswer == labelChoice2.Text)
+                                {
+                                    labelChoice2.TextColor = Color.Green;
+                                }
+                                else if (correctAnswer == labelChoice1.Text)
+                                {
+                                    labelChoice1.TextColor = Color.Green;
+                                }
+                                else if (correctAnswer == labelChoice4.Text)
+                                {
+                                    labelChoice4.TextColor = Color.Green;
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        }
+                        else if ((SelectedOption) == (labelChoice4.Text))
+                        {
+                            //imageChoice1.Source = ImageSource.FromFile("RadioOn.png");
+                            if (SelectedOption == correctAnswer)
+                            {
+                                labelChoice4.TextColor = Color.Green;
+                            }
+                            else
+                            {
+                                labelChoice4.TextColor = Color.Red;
+                                if (correctAnswer == labelChoice2.Text)
+                                {
+                                    labelChoice2.TextColor = Color.Green;
+                                }
+                                else if (correctAnswer == labelChoice1.Text)
+                                {
+                                    labelChoice1.TextColor = Color.Green;
+                                }
+                                else if (correctAnswer == labelChoice3.Text)
+                                {
+                                    labelChoice3.TextColor = Color.Green;
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (correctAnswer == labelChoice1.Text)
+                            {
+                                labelChoice1.TextColor = Color.Green;
+                            }
+                            else if (correctAnswer == labelChoice2.Text)
+                            {
+                                labelChoice2.TextColor = Color.Green;
+                            }
+                            else if (correctAnswer == labelChoice3.Text)
+                            {
+                                labelChoice3.TextColor = Color.Green;
+                            }
+                            else if (correctAnswer == labelChoice4.Text)
+                            {
+                                labelChoice4.TextColor = Color.Green;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        var correctAnswer = quizObject.questions_set[v].Answer;
+
+                        if ((correctAnswer) == (labelChoice1.Text))
+                        {
+                            Choice1Tapped(null, null);
+                        }
+                        else if ((correctAnswer) == (labelChoice2.Text))
+                        {
+                            Choice2Tapped(null, null);
+                        }
+                        else if ((correctAnswer) == (labelChoice3.Text))
+                        {
+                            Choice3Tapped(null, null);
+                        }
+                        else if ((correctAnswer) == (labelChoice4.Text))
+                        {
+                            Choice4Tapped(null, null);
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(quizObject.questions_set[v].UserAnswer))
+                    {
+                        SelectedOption = quizObject.questions_set[v].UserAnswer;
+
+                        if ((SelectedOption) == (labelChoice1.Text))
+                        {
+                            Choice1Tapped(null, null);
+                        }
+                        else if ((SelectedOption) == (labelChoice2.Text))
+                        {
+                            Choice2Tapped(null, null);
+                        }
+                        else if ((SelectedOption) == (labelChoice3.Text))
+                        {
+                            Choice3Tapped(null, null);
+                        }
+                        else if ((SelectedOption) == (labelChoice4.Text))
+                        {
+                            Choice4Tapped(null, null);
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                }
 
                 questioNumber = v;
 
@@ -289,12 +616,13 @@ namespace YenCash
 
     public class QuestionsSet
     {
-        public string question { get; set; }
-        public string option1 { get; set; }
-        public string option2 { get; set; }
-        public string option3 { get; set; }
-        public string option4 { get; set; }
-        public string answer { get; set; }
+        public string Question { get; set; }
+        public string Option1 { get; set; }
+        public string Option2 { get; set; }
+        public string Option3 { get; set; }
+        public string Option4 { get; set; }
+        public string UserAnswer { get; set; }
+        public string Answer { get; set; }
     }
 
     public class QuizObject
