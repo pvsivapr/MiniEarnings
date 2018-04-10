@@ -1,15 +1,5 @@
 ﻿<Properties StartupConfiguration="{CA118C24-945C-4573-A7E8-5A8740EB83C4}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="YenCash/Views/MasterPage.cs">
-    <Files>
-      <File FileName="YenCash/Views/Lottery.xaml" Line="147" Column="15" />
-      <File FileName="YenCash/Views/Lottery.xaml.cs" Line="20" Column="23" />
-      <File FileName="YenCash/Views/MasterMenuPage.xaml" Line="123" Column="106" />
-      <File FileName="YenCash/Views/HomePage.xaml" Line="177" Column="81" />
-      <File FileName="YenCash/Views/UserSettings.xaml" Line="211" Column="79" />
-      <File FileName="YenCash/Views/MasterMenuPage.xaml.cs" Line="81" Column="60" />
-      <File FileName="YenCash/Views/MasterPage.cs" Line="79" Column="69" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
