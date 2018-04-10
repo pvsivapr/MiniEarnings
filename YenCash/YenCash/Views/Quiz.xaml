@@ -60,8 +60,25 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <local:CustomLabel x:Name="pageTitle" Text="Quiz" TextColor="{x:StaticResource HeadingTextColor}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <local:CustomLabel x:Name="pageTitle" Text="Quiz" TextColor="{x:StaticResource HeadingTextColor}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand">
                     </local:CustomLabel>
+                    <local:CustomLabel x:Name="pageSubTitle" Text="" TextColor="{x:StaticResource HeadingTextColor}" FontSize="Small" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="End" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    </local:CustomLabel>
+                    <StackLayout Grid.Row="0" Grid.Column="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image Source="UserProfileIcon.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SettingsTapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <StackLayout Grid.Row="0" Grid.Column="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image Source="MenuLogout.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LogoutTapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+
                 </Grid>
             </StackLayout>
             
@@ -73,7 +90,14 @@
 
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-                            <Grid Padding="10,0,10,0" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <StackLayout Orientation="Horizontal" Padding="10,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                <local:CustomLabel x:Name="attemptedQuestions" Text="0" TextColor="{x:StaticResource AppTextColor}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                            </local:CustomLabel>
+                            <local:CustomLabel x:Name="timeDisplay" Text="0:00:00" TextColor="{x:StaticResource AppTextColor}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                            </local:CustomLabel>
+                            </StackLayout>
+                            
+                            <Grid Padding="10,0,10,0" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="1*"/>
                                     <RowDefinition Height="1*"/>
@@ -138,12 +162,12 @@
 
                             </Grid>
 
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-                                <local:CustomButton x:Name="PreviousButton" Text="PREV" IsVisible="false" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="Maroon" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Clicked="PreviousButtonClicked">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                <local:CustomButton x:Name="PreviousButton" Text="PREV" IsVisible="false" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="{x:StaticResource HeaderColor}" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Clicked="PreviousButtonClicked">
                             </local:CustomButton>
-                                <local:CustomButton x:Name="NextButton" Text="NEXT" IsVisible="true" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="Maroon" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Clicked="NextButtonClicked">
+                                <local:CustomButton x:Name="NextButton" Text="NEXT" IsVisible="true" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="{x:StaticResource HeaderColor}" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Clicked="NextButtonClicked">
                             </local:CustomButton>
-                            <local:CustomButton x:Name="SubmitButton" Text="SUBMIT" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="Maroon" Grid.Row="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Clicked="SubmitButtonClicked">
+                            <local:CustomButton x:Name="SubmitButton" Text="SUBMIT" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="{x:StaticResource HeaderColor}" Grid.Row="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Clicked="SubmitButtonClicked">
                             </local:CustomButton>
                             </StackLayout>
 
@@ -154,6 +178,12 @@
 
                 <StackLayout x:Name="stackFooterAdd" BackgroundColor="Olive" HeightRequest="50" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
                     <local:AdBanner Size="SmartBannerPortrait"></local:AdBanner>
+                </StackLayout>
+
+
+                <StackLayout x:Name="stackFooter" BackgroundColor="Olive" HeightRequest="50" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                    <local:CustomLabel x:Name="footerText" Text="" TextColor="{x:StaticResource HeadingTextColor}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    </local:CustomLabel>
                 </StackLayout>
                 
             </StackLayout>

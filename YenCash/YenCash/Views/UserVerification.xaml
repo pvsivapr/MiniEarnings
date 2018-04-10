@@ -90,7 +90,7 @@
 
                                 <!--<local:CustomButton x:Name="VerifyButton" Text="VERIFY" TextColor="{x:StaticResource AppTextColor}" Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="VerifyButtonClicked">
                                 </local:CustomButton>-->
-                                <local:CustomButton x:Name="VerifyButton" Text="VERIFY" TextColor="{x:StaticResource AppTextColor}" Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="VerifyButtonClicked">
+                                <local:CustomButton x:Name="VerifyButton" Text="VERIFY" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="{x:StaticResource HeaderColor}" Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="VerifyButtonClicked">
                                 </local:CustomButton>
 
                                 <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="End">

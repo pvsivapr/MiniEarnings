@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{CA118C24-945C-4573-A7E8-5A8740EB83C4}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="YenCash/Views/Quiz.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="YenCash/Views/MasterMenuPage.xaml">
     <Files>
-      <File FileName="YenCash/App.xaml.cs" Line="9" Column="10" />
-      <File FileName="YenCash/Views/Quiz.xaml.cs" Line="186" Column="225" />
+      <File FileName="YenCash/Views/MasterMenuPage.xaml.cs" Line="55" Column="28" />
+      <File FileName="YenCash/Views/MasterMenuPage.xaml" Line="303" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.YenCash.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Nougat" />
+  <MonoDevelop.Ide.ItemProperties.YenCash.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.ZY222Z3P7X" />
   <MultiItemStartupConfigurations />
 </Properties>

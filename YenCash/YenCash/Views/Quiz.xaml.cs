@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,23 @@ namespace YenCash
         public int questioNumber, correctAnswers = 0, unAttemptedQuestions = 0;
         public QuizObject quizObject;
         public bool isInReviewMode;
+        Stopwatch timeSpan;
 
         public Quiz(QuizTopic selectedTopic)
         {
+            timeSpan = new Stopwatch();
             quizObject = new QuizObject();
-            quizTopic = selectedTopic;
             InitializeComponent();
+            if (selectedTopic != null)
+            {
+                quizTopic = selectedTopic;
+                pageSubTitle.Text = quizTopic.TopicName;
+            }
+            else
+            {
+                pageSubTitle.Text = "";
+            }
+            footerText.Text = "A product of " + "\n" + "            " + "MactoSoft PVT LTD.";
             GetPageData();
             var height = (App.screenHeight * 1) / 100;
             var width = (App.screenWidth * 1) / 100;
@@ -60,6 +72,65 @@ namespace YenCash
                 PrintLog.PublishLog(ex);
             }
             //stackLoader.IsVisible = false;
+        }
+
+        private async void SettingsTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                await Navigation.PushModalAsync(new UserSettings(), false);
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+
+        private async void LogoutTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                await Navigation.PushModalAsync(new UserLogin(), false);
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+
+        public async Task<bool> StartTimer()
+        {
+            try
+            {
+                Device.StartTimer(TimeSpan.FromMilliseconds(500), startQuizTime);
+            }
+            catch(Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            return true;
+        }
+
+        private bool startQuizTime()
+        {
+            try
+            {
+                var span = TimeSpan.FromMilliseconds(((timeSpan.ElapsedMilliseconds)));
+                //var times = DateTime.Now
+                //span.ho
+                //var time = new DateTime(0,0,0,0,0,0, Convert.ToInt32((timeSpan.ElapsedMilliseconds)), DateTimeKind.Local);
+                var stringTime = ((span.Hours).ToString()) + ":" + ((span.Minutes).ToString()) + ":" + ((span.Seconds).ToString());
+                timeDisplay.Text = stringTime;
+            }
+            catch(Exception ex)
+            {
+                var msg = ex.Message;
+            }
+            return timeSpan.IsRunning;
         }
 
         #region for choice clicked events
@@ -203,6 +274,7 @@ namespace YenCash
                 labelChoice4.Text = quizObject.questions_set[0].Option4;
 
                 questioNumber = 0;
+                attemptedQuestions.Text = ((questioNumber + 1).ToString()) + "/" + totalQuestions;
 
                 //labelQuestion.Text = "Which is the name of the robot that was given the saudi arabic Nationality ?";
                 //labelChoice1.Text = "ELESA";
@@ -243,11 +315,12 @@ namespace YenCash
 
         private async void PreviousButtonClicked(object sender, EventArgs e)
         {
-            //stackLoader.IsVisible = true;
+            stackLoader.IsVisible = true;
             try
             {
                 questioNumber--;
-                GetQuestion(questioNumber);
+                attemptedQuestions.Text = ((questioNumber + 1).ToString()) + "/" + totalQuestions;
+                await GetQuestion(questioNumber);
                 if(questioNumber <= 0)
                 {
                     PreviousButton.IsVisible = false;
@@ -261,16 +334,17 @@ namespace YenCash
             {
                 PrintLog.PublishLog(ex);
             }
-            //stackLoader.IsVisible = false;
+            stackLoader.IsVisible = false;
         }
 
         private async void NextButtonClicked(object sender, EventArgs e)
         {
-            //stackLoader.IsVisible = true;
+            stackLoader.IsVisible = true;
             try
             {
                 questioNumber++;
-                GetQuestion(questioNumber);
+                attemptedQuestions.Text = ((questioNumber + 1).ToString()) + "/" + totalQuestions;
+                await GetQuestion(questioNumber);
                 if (questioNumber >= totalQuestions-1)
                 {
                     NextButton.IsVisible = false;
@@ -284,11 +358,12 @@ namespace YenCash
             {
                 PrintLog.PublishLog(ex);
             }
-            //stackLoader.IsVisible = false;
+            stackLoader.IsVisible = false;
         }
 
         private async void SubmitButtonClicked(object sender, EventArgs e)
         {
+            timeSpan.Stop();
             //stackLoader.IsVisible = true;
             try
             {
@@ -386,7 +461,7 @@ namespace YenCash
             //stackLoader.IsVisible = false;
         }
 
-        private async void GetQuestion(int v)
+        private async Task<bool> GetQuestion(int v)
         {
             try
             {
@@ -548,21 +623,21 @@ namespace YenCash
                     {
                         var correctAnswer = quizObject.questions_set[v].Answer;
 
-                        if ((correctAnswer) == (labelChoice1.Text))
+                        if (correctAnswer == labelChoice1.Text)
                         {
-                            Choice1Tapped(null, null);
+                            labelChoice1.TextColor = Color.Green;
                         }
-                        else if ((correctAnswer) == (labelChoice2.Text))
+                        else if (correctAnswer == labelChoice2.Text)
                         {
-                            Choice2Tapped(null, null);
+                            labelChoice2.TextColor = Color.Green;
                         }
-                        else if ((correctAnswer) == (labelChoice3.Text))
+                        else if (correctAnswer == labelChoice3.Text)
                         {
-                            Choice3Tapped(null, null);
+                            labelChoice3.TextColor = Color.Green;
                         }
-                        else if ((correctAnswer) == (labelChoice4.Text))
+                        else if (correctAnswer == labelChoice4.Text)
                         {
-                            Choice4Tapped(null, null);
+                            labelChoice4.TextColor = Color.Green;
                         }
                         else
                         {
@@ -600,6 +675,7 @@ namespace YenCash
                 }
 
                 questioNumber = v;
+                attemptedQuestions.Text = ((questioNumber + 1).ToString()) + "/" + totalQuestions;
 
                 //labelQuestion.Text = "Which is the name of the robot that was given the saudi arabic Nationality ?";
                 //labelChoice1.Text = "ELESA";
@@ -611,6 +687,14 @@ namespace YenCash
             {
                 PrintLog.PublishLog(ex);
             }
+            return true;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            timeSpan.Start();
+            StartTimer();
         }
     }
 

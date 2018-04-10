@@ -17,7 +17,7 @@ namespace YenCash
             try
             {
                 //Navigation.PushModalAsync(new UserLogin());
-                Navigation.PushModalAsync(new SelectQuizSubject());
+                Navigation.PushModalAsync(new SelectQuizSubject(new string[] { "Push" }));
             }
             catch(Exception ex)
             {

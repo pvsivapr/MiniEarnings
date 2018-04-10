@@ -122,7 +122,7 @@
                                     </Image.GestureRecognizers>
                                 </Image>
 
-                            <local:CustomButton x:Name="RegisterButton" Text="REGISTER" TextColor="{x:StaticResource AppTextColor}" Grid.Row="{x:StaticResource registerButtonRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="RegisterButtonClicked">
+                            <local:CustomButton x:Name="RegisterButton" Text="REGISTER" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="{x:StaticResource HeaderColor}" Grid.Row="{x:StaticResource registerButtonRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="RegisterButtonClicked">
                             </local:CustomButton>
 
                                 <StackLayout Orientation="Horizontal" Grid.Row="{x:StaticResource OTPRow}" Grid.Column="0" Grid.ColumnSpan="{x:StaticResource generalColumnSpan}" HorizontalOptions="Center" VerticalOptions="End">
@@ -145,7 +145,7 @@
                         </local:CustomLabel>
                         <!--<local:CustomLabel Text="Register">
                         </local:CustomLabel>-->
-                            <local:CustomLabel x:Name="btnLogin" Text="Login" BackgroundColor="#FFFFFF" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End" VerticalOptions="FillAndExpand">
+                            <local:CustomLabel x:Name="btnLogin" Text="Login" BackgroundColor="{x:StaticResource HeaderColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End" VerticalOptions="FillAndExpand">
                                 <local:CustomLabel.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LoginButtonClicked"/>
                                 </local:CustomLabel.GestureRecognizers>

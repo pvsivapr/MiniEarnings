@@ -3,9 +3,11 @@
 	<Application.Resources>
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
-            <Color x:Key="HeaderColor">Orange</Color>
+            <Color x:Key="HeaderColor">#f99d1c</Color>
             <Color x:Key="HeadingTextColor">White</Color>
-            <Color x:Key="PageBackgroundColor">#FFCF79</Color>
+            <Color x:Key="PageBackgroundColor">#d1d3d4</Color>
+            <Color x:Key="MasterDetailPageHeader">#c6c8ca</Color>
+            <Color x:Key="Pagefooter">#FFCF79</Color>
             <Color x:Key="AppTextColor">White</Color>
         </ResourceDictionary>
 	</Application.Resources>

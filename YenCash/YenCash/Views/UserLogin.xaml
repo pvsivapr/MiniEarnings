@@ -93,7 +93,7 @@
                                     </Image.GestureRecognizers>
                                 </Image>
 
-                            <local:CustomButton x:Name="loginButton" Text="LOG IN" TextColor="{x:StaticResource AppTextColor}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="LoginButtonClicked">
+                            <local:CustomButton x:Name="loginButton" Text="LOG IN" TextColor="{x:StaticResource AppTextColor}" BackgroundColor="{x:StaticResource HeaderColor}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="LoginButtonClicked">
                             </local:CustomButton>
 
                             <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="End">
@@ -112,7 +112,7 @@
                         </local:CustomLabel>
                         <!--<local:CustomLabel Text="Register">
                         </local:CustomLabel>-->
-                            <local:CustomLabel x:Name="btnRegister" Text="Register" BackgroundColor="#FFFFFF" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End" VerticalOptions="FillAndExpand">
+                            <local:CustomLabel x:Name="btnRegister" Text="Register" BackgroundColor="{x:StaticResource HeaderColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End" VerticalOptions="FillAndExpand">
                                 <local:CustomLabel.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="RegisterButtonClicked"/>
                                 </local:CustomLabel.GestureRecognizers>

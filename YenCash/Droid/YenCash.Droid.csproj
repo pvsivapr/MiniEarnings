@@ -208,6 +208,7 @@
     <AndroidResource Include="Resources\drawable\MenuShare.png" />
     <AndroidResource Include="Resources\drawable\Close.png" />
     <AndroidResource Include="Resources\drawable\SearchBarIcon.png" />
+    <AndroidResource Include="Resources\drawable\UserProfileIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\camera_crop_height.png" />

@@ -54,6 +54,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\MasterMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -140,6 +144,10 @@
     </Compile>
     <Compile Include="Views\ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterPage.cs" />
+    <Compile Include="Views\MasterMenuPage.xaml.cs">
+      <DependentUpon>MasterMenuPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

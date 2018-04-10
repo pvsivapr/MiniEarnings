@@ -182,7 +182,7 @@
                                     </BoxView.GestureRecognizers>
                                 </BoxView>
 
-                                <StackLayout Grid.Column="{x:StaticResource FAQColumn}" Grid.Row="{x:StaticResource FAQRow}" Style="{x:StaticResource stackIconHolder}">
+                                <!--<StackLayout Grid.Column="{x:StaticResource FAQColumn}" Grid.Row="{x:StaticResource FAQRow}" Style="{x:StaticResource stackIconHolder}">
                                     <Image x:Name="imageFAQ" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="FAQ" Style="{x:StaticResource labelIconInfo}">
@@ -192,9 +192,9 @@
                                     <BoxView.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FAQTapped"/>
                                     </BoxView.GestureRecognizers>
-                                </BoxView>
+                                </BoxView>-->
 
-                                <StackLayout Grid.Column="{x:StaticResource AboutUsColumn}" Grid.Row="{x:StaticResource AboutUsRow}" Style="{x:StaticResource stackIconHolder}">
+                                <!--<StackLayout Grid.Column="{x:StaticResource AboutUsColumn}" Grid.Row="{x:StaticResource AboutUsRow}" Style="{x:StaticResource stackIconHolder}">
                                     <Image x:Name="imageAboutUs" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="AboutUs" Style="{x:StaticResource labelIconInfo}">
@@ -204,7 +204,7 @@
                                     <BoxView.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AboutUsTapped"/>
                                     </BoxView.GestureRecognizers>
-                                </BoxView>
+                                </BoxView>-->
 
                                 <!--<StackLayout Grid.Column="{x:StaticResource QuizColumn}" Grid.Row="{x:StaticResource QuizRow}" Style="{x:StaticResource stackIconHolder}">
                                     <Image x:Name="imageQuiz" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">

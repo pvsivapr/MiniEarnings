@@ -27,14 +27,29 @@ namespace YenCash
             imageSurvey.HeightRequest = imageMetrices;
             imageSurvey.WidthRequest = imageMetrices;
 
-            imageSocialSharing.HeightRequest = imageMetrices;
-            imageSocialSharing.WidthRequest = imageMetrices;
+            //imageSocialSharing.HeightRequest = imageMetrices;
+            //imageSocialSharing.WidthRequest = imageMetrices;
 
-            imageSudoku.HeightRequest = imageMetrices;
-            imageSudoku.WidthRequest = imageMetrices;
+            //imageSudoku.HeightRequest = imageMetrices;
+            //imageSudoku.WidthRequest = imageMetrices;
 
             //gridDataInput.HeightRequest = height * 75;
             
+        }
+
+        private async void MasterNavigationTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                var ParentPage = (MasterDetailPage)this.Parent;
+                ParentPage.IsPresented = (ParentPage.IsPresented == false) ? true : false;
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
         }
 
         private async void SettingsTapped(object sender, EventArgs e)
@@ -70,7 +85,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new Lottery(), false);
+                await Navigation.PushModalAsync(new Lottery(new string[] { "Push" }), false);
             }
             catch (Exception ex)
             {
@@ -85,7 +100,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new SelectQuizSubject(), false);
+                await Navigation.PushModalAsync(new SelectQuizSubject(new string[] { "Push" }), false);
             }
             catch (Exception ex)
             {
@@ -99,7 +114,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new Survey(), false);
+                await Navigation.PushModalAsync(new Survey(new string[] { "Push" }), false);
             }
             catch (Exception ex)
             {

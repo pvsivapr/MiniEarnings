@@ -12,9 +12,19 @@ namespace YenCash
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Lottery : ContentPage
     {
-        public Lottery()
+        string pageType;
+        public Lottery(string[] pageSettings)
         {
+            pageType = pageSettings[0];
             InitializeComponent();
+            if(pageType == "MasterPage")
+            {
+                imageMainNavigation.Source = ImageSource.FromFile("MenuHamBurger.png");
+            }
+            else
+            {
+                imageMainNavigation.Source = ImageSource.FromFile("LeftArrowWhite.png");
+            }
         }
 
         private async void NavigationTapped(object sender, EventArgs e)

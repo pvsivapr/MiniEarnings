@@ -3,7 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:YenCash;assembly=YenCash"
-    x:Class="YenCash.HomePage">
+    x:Class="YenCash.HomePage"
+    Title="HomePage" Icon="">
 
 
     <ContentPage.Resources>
@@ -59,16 +60,16 @@
                     </Grid.ColumnDefinitions>
                     <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <Image Source="MenuHamBurger.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-                            <!--<Image.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NavigationTapped"/>
-                            </Image.GestureRecognizers>-->
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MasterNavigationTapped"/>
+                            </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
                     <local:CustomLabel x:Name="pageTitle" Text="Menu" TextColor="{x:StaticResource HeadingTextColor}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     </local:CustomLabel>
 
                     <StackLayout Grid.Row="0" Grid.Column="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Image Source="MenuSettings.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                        <Image Source="UserProfileIcon.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SettingsTapped"/>
                             </Image.GestureRecognizers>
@@ -160,7 +161,7 @@
                                     </BoxView.GestureRecognizers>
                                 </BoxView>
 
-                                <StackLayout Grid.Column="{x:StaticResource SocialSharingColumn}" Grid.Row="{x:StaticResource SocialSharingRow}" Style="{x:StaticResource stackIconHolder}">
+                                <!--<StackLayout Grid.Column="{x:StaticResource SocialSharingColumn}" Grid.Row="{x:StaticResource SocialSharingRow}" Style="{x:StaticResource stackIconHolder}">
                                     <Image x:Name="imageSocialSharing" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="Socialize" Style="{x:StaticResource labelIconInfo}">
@@ -182,7 +183,7 @@
                                     <BoxView.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SudokuTapped"/>
                                     </BoxView.GestureRecognizers>
-                                </BoxView>
+                                </BoxView>-->
                                 
 
 

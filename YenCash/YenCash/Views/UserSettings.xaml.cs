@@ -37,11 +37,11 @@ namespace YenCash
             imagePayment.HeightRequest = imageMetrices;
             imagePayment.WidthRequest = imageMetrices;
 
-            imageFAQ.HeightRequest = imageMetrices;
-            imageFAQ.WidthRequest = imageMetrices;
+            //imageFAQ.HeightRequest = imageMetrices;
+            //imageFAQ.WidthRequest = imageMetrices;
 
-            imageAboutUs.HeightRequest = imageMetrices;
-            imageAboutUs.WidthRequest = imageMetrices;
+            //imageAboutUs.HeightRequest = imageMetrices;
+            //imageAboutUs.WidthRequest = imageMetrices;
 
 
             //imageSudoku.HeightRequest = imageMetrices;

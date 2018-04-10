@@ -9,10 +9,19 @@ namespace YenCash
     public partial class SelectQuizSubject : ContentPage
     {
         public ObservableCollection<QuizGroup> quizGroup;
-
-        public SelectQuizSubject()
+        string pageType;
+        public SelectQuizSubject(string[] pageSettings)
         {
+            pageType = pageSettings[0];
             InitializeComponent();
+            if (pageType == "MasterPage")
+            {
+                imageMainNavigation.Source = ImageSource.FromFile("MenuHamBurger.png");
+            }
+            else
+            {
+                imageMainNavigation.Source = ImageSource.FromFile("LeftArrowWhite.png");
+            }
 
             listQuizTopics.GroupHeaderTemplate = new DataTemplate(typeof(GroupUIView));
             listQuizTopics.ItemTemplate = new DataTemplate(typeof(TopicUIView));

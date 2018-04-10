@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:YenCash;assembly=YenCash"
+    x:Class="YenCash.MasterMenuPage"
+    Title="HomePage" Icon="">
+
+    
+	<ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="imageIcon" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="labelIconInfo" TargetType="Label">
+                <!--<Setter Property="FontAttributes" Value="Bold" />-->
+                <Setter Property="TextColor" Value="{x:StaticResource AppTextColor}" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="stackIconHolder" TargetType="StackLayout">
+                <!--<Setter Property="BackgroundColor" Value="{StaticResource AppTextColor}" />-->
+                <Setter Property="Orientation" Value="Horizontal" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            <Style x:Key="boxIconOverlay" TargetType="BoxView">
+                <Setter Property="Color" Value="Transparent" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+            <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    <ContentPage.Content>
+    <AbsoluteLayout x:Name="AbsHolder" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+            <StackLayout x:Name="stackMainHolder" BackgroundColor="{x:StaticResource PageBackgroundColor}" AbsoluteLayout.LayoutBounds="0,0,1,0.08" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <local:ImageCircle x:Name="imageProfilePic" Source="RupeeTwo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        </local:ImageCircle>
+                    </StackLayout>
+                    <local:CustomLabel x:Name="pageTitle" Text="Menu" TextColor="{x:StaticResource HeadingTextColor}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    </local:CustomLabel>
+                    <StackLayout Grid.Row="0" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image Source="RightArrowWhite.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <!--<Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SettingsTapped"/>
+                            </Image.GestureRecognizers>-->
+                        </Image>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            
+            <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,0.9" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    
+                <StackLayout Padding="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                            <!--<Image>
+                            </Image>-->
+                        <Grid x:Name="gridDataInput" BackgroundColor="Transparent" Padding="10,10,10,0" RowSpacing="0" ColumnSpacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                                <Grid.Resources>
+                                    <ResourceDictionary>
+                                        <x:Int32 x:Key="lotteryRow">0</x:Int32>
+                                        <x:Int32 x:Key="lotteryColumn">0</x:Int32>
+                                        <x:Int32 x:Key="QuizRow">1</x:Int32>
+                                        <x:Int32 x:Key="QuizColumn">0</x:Int32>
+                                        <x:Int32 x:Key="SurveyRow">2</x:Int32>
+                                        <x:Int32 x:Key="SurveyColumn">0</x:Int32>
+                                        <x:Int32 x:Key="SocialSharingRow">3</x:Int32>
+                                        <x:Int32 x:Key="SocialSharingColumn">0</x:Int32>
+                                        <x:Int32 x:Key="SudokuRow">4</x:Int32>
+                                        <x:Int32 x:Key="SudokuColumn">0</x:Int32>
+                                        <!--<x:Int32 x:Key="registerButtonRow">5</x:Int32>-->
+                                    </ResourceDictionary>
+                                </Grid.Resources>
+
+                                <StackLayout Grid.Column="{x:StaticResource lotteryColumn}" Grid.Row="{x:StaticResource lotteryRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageLottery" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="Lottery" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource lotteryColumn}" Grid.Row="{x:StaticResource lotteryRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LotteryTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource QuizColumn}" Grid.Row="{x:StaticResource QuizRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageQuiz" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="Quiz" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource QuizColumn}" Grid.Row="{x:StaticResource QuizRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="QuizTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource SurveyColumn}" Grid.Row="{x:StaticResource SurveyRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageSurvey" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="Survey" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource SurveyColumn}" Grid.Row="{x:StaticResource SurveyRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SurveyTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <!--<StackLayout Grid.Column="{x:StaticResource SocialSharingColumn}" Grid.Row="{x:StaticResource SocialSharingRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageSocialSharing" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="Socialize" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource SocialSharingColumn}" Grid.Row="{x:StaticResource SocialSharingRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SocialSharingTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource SudokuColumn}" Grid.Row="{x:StaticResource SudokuRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageSudoku" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="Sudoku" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource SudokuColumn}" Grid.Row="{x:StaticResource SudokuRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SudokuTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>-->
+                            </Grid>
+
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                <BoxView Color="{x:StaticResource PageBackgroundColor}" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start"></BoxView>
+                                <local:CustomLabel Text="Communicate" TextColor="{x:StaticResource PageBackgroundColor}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                                </local:CustomLabel>
+                            </StackLayout>
+
+                            <Grid BackgroundColor="Transparent" Padding="10,0,10,10" RowSpacing="0" ColumnSpacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                                <Grid.Resources>
+                                    <ResourceDictionary>
+                                        <x:Int32 x:Key="offersRow">0</x:Int32>
+                                        <x:Int32 x:Key="offersColumn">0</x:Int32>
+                                        <x:Int32 x:Key="WriteFeedbackRow">1</x:Int32>
+                                        <x:Int32 x:Key="WriteFeedbackColumn">0</x:Int32>
+                                        <x:Int32 x:Key="FAQsRow">2</x:Int32>
+                                        <x:Int32 x:Key="FAQsColumn">0</x:Int32>
+                                        <x:Int32 x:Key="TermsConditionsRow">3</x:Int32>
+                                        <x:Int32 x:Key="TermsConditionsColumn">0</x:Int32>
+                                        <x:Int32 x:Key="AboutUsRow">4</x:Int32>
+                                        <x:Int32 x:Key="AboutUsColumn">0</x:Int32>
+                                        <x:Int32 x:Key="ContactUsRow">4</x:Int32>
+                                        <x:Int32 x:Key="ContactUsColumn">0</x:Int32>
+                                        <x:Int32 x:Key="RateOurAppRow">4</x:Int32>
+                                        <x:Int32 x:Key="RateOurAppColumn">0</x:Int32>
+                                        <!--<x:Int32 x:Key="registerButtonRow">5</x:Int32>-->
+                                    </ResourceDictionary>
+                                </Grid.Resources>
+
+                                <StackLayout Grid.Column="{x:StaticResource offersColumn}" Grid.Row="{x:StaticResource offersRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageoffers" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="offers" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource offersColumn}" Grid.Row="{x:StaticResource offersRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="offersTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource WriteFeedbackColumn}" Grid.Row="{x:StaticResource WriteFeedbackRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageWriteFeedback" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="Write Feedback" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource WriteFeedbackColumn}" Grid.Row="{x:StaticResource WriteFeedbackRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="WriteFeedbackTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource FAQsColumn}" Grid.Row="{x:StaticResource FAQsRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageFAQs" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="FAQs" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource FAQsColumn}" Grid.Row="{x:StaticResource FAQsRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FAQsTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource TermsConditionsColumn}" Grid.Row="{x:StaticResource TermsConditionsRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageTermsConditions" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="Terms &amp; Conditions" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource TermsConditionsColumn}" Grid.Row="{x:StaticResource TermsConditionsRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TermsConditionsTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource AboutUsColumn}" Grid.Row="{x:StaticResource AboutUsRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageAboutUs" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="About Us" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource AboutUsColumn}" Grid.Row="{x:StaticResource AboutUsRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AboutUsTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource ContactUsColumn}" Grid.Row="{x:StaticResource ContactUsRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageContactUs" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="Contact Us" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource ContactUsColumn}" Grid.Row="{x:StaticResource ContactUsRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ContactUsTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+
+                                <StackLayout Grid.Column="{x:StaticResource RateOurAppColumn}" Grid.Row="{x:StaticResource RateOurAppRow}" Style="{x:StaticResource stackIconHolder}">
+                                    <Image x:Name="imageRateOurApp" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    </Image>
+                                    <local:CustomLabel Text="Rate our App" Style="{x:StaticResource labelIconInfo}">
+                                    </local:CustomLabel>
+                                </StackLayout>
+                                <BoxView Grid.Column="{x:StaticResource RateOurAppColumn}" Grid.Row="{x:StaticResource RateOurAppRow}" Style="{x:StaticResource boxIconOverlay}">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="RateOurAppTapped"/>
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+                            </Grid>
+                            
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+        
+    </AbsoluteLayout>
+        </ContentPage.Content>
+    
+</ContentPage>
