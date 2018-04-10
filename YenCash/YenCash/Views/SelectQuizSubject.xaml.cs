@@ -12,8 +12,8 @@ namespace YenCash
         string pageType;
         public SelectQuizSubject(string[] pageSettings)
         {
-            pageType = pageSettings[0];
             InitializeComponent();
+            pageType = pageSettings[0];
             if (pageType == "MasterPage")
             {
                 imageMainNavigation.Source = ImageSource.FromFile("MenuHamBurger.png");
@@ -134,7 +134,15 @@ namespace YenCash
         {
             try
             {
-                Navigation.PopModalAsync(false);
+                if (pageType == "MasterPage")
+                {
+                    var ParentPage = (MasterDetailPage)this.Parent;
+                    ParentPage.IsPresented = (ParentPage.IsPresented == false) ? true : false;
+                }
+                else
+                {
+                    Navigation.PopModalAsync(false);
+                }
             }
             catch (Exception ex)
             {

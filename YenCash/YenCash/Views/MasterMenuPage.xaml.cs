@@ -18,6 +18,11 @@ namespace YenCash
 
             var imageMetrices = width * 10;
 
+            stackMainHolder.HeightRequest = (height * 20);
+
+            imagehome.HeightRequest = imageMetrices;
+            imagehome.WidthRequest = imageMetrices;
+
             imageLottery.HeightRequest = imageMetrices;
             imageLottery.WidthRequest = imageMetrices;
 
@@ -56,6 +61,36 @@ namespace YenCash
 
         }
 
+        private async void SettingsTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                App.Current.MainPage = new MasterPage("SettingsPage");
+                ClosePage();
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+
+        private async void HomeTapped(object sender, EventArgs e)
+        {
+            //stackLoader.IsVisible = true;
+            try
+            {
+                App.Current.MainPage = new MasterPage("HomePage");
+                ClosePage();
+            }
+            catch (Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+            //stackLoader.IsVisible = false;
+        }
+
         private async void LotteryTapped(object sender, EventArgs e)
         {
             //stackLoader.IsVisible = true;
@@ -70,7 +105,6 @@ namespace YenCash
             }
             //stackLoader.IsVisible = false;
         }
-
 
         private async void QuizTapped(object sender, EventArgs e)
         {
@@ -248,7 +282,6 @@ namespace YenCash
             }
             //stackLoader.IsVisible = false;
         }
-
 
         public async Task<bool> ClosePage()
         {

@@ -126,7 +126,7 @@
                                 </Grid.Resources>
 
                                 <StackLayout Grid.Column="{x:StaticResource lotteryColumn}" Grid.Row="{x:StaticResource lotteryRow}" Style="{x:StaticResource stackIconHolder}">
-                                    <Image x:Name="imageLottery" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    <Image x:Name="imageLottery" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="Lottery" Style="{x:StaticResource labelIconInfo}">
                                     </local:CustomLabel>
@@ -138,7 +138,7 @@
                                 </BoxView>
 
                                 <StackLayout Grid.Column="{x:StaticResource QuizColumn}" Grid.Row="{x:StaticResource QuizRow}" Style="{x:StaticResource stackIconHolder}">
-                                    <Image x:Name="imageQuiz" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    <Image x:Name="imageQuiz" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="Quiz" Style="{x:StaticResource labelIconInfo}">
                                     </local:CustomLabel>
@@ -150,7 +150,7 @@
                                 </BoxView>
 
                                 <StackLayout Grid.Column="{x:StaticResource SurveyColumn}" Grid.Row="{x:StaticResource SurveyRow}" Style="{x:StaticResource stackIconHolder}">
-                                    <Image x:Name="imageSurvey" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    <Image x:Name="imageSurvey" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="Survey" Style="{x:StaticResource labelIconInfo}">
                                     </local:CustomLabel>
@@ -162,7 +162,7 @@
                                 </BoxView>
 
                                 <!--<StackLayout Grid.Column="{x:StaticResource SocialSharingColumn}" Grid.Row="{x:StaticResource SocialSharingRow}" Style="{x:StaticResource stackIconHolder}">
-                                    <Image x:Name="imageSocialSharing" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    <Image x:Name="imageSocialSharing" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="Socialize" Style="{x:StaticResource labelIconInfo}">
                                     </local:CustomLabel>
@@ -174,7 +174,7 @@
                                 </BoxView>
 
                                 <StackLayout Grid.Column="{x:StaticResource SudokuColumn}" Grid.Row="{x:StaticResource SudokuRow}" Style="{x:StaticResource stackIconHolder}">
-                                    <Image x:Name="imageSudoku" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    <Image x:Name="imageSudoku" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="Sudoku" Style="{x:StaticResource labelIconInfo}">
                                     </local:CustomLabel>

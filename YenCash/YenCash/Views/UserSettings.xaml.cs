@@ -7,14 +7,23 @@ namespace YenCash
 {
     public partial class UserSettings : ContentPage
     {
-        public UserSettings()
+        string pageType;
+        public UserSettings(string[] pageSettings)
         {
             var height = (App.screenHeight * 1) / 100;
             var width = (App.screenWidth * 1) / 100;
 
 
             InitializeComponent();
-
+            pageType = pageSettings[0];
+            if (pageType == "MasterPage")
+            {
+                imageMainNavigation.Source = ImageSource.FromFile("MenuHamBurger.png");
+            }
+            else
+            {
+                imageMainNavigation.Source = ImageSource.FromFile("LeftArrowWhite.png");
+            }
 
 
 
@@ -55,7 +64,16 @@ namespace YenCash
         {
             try
             {
-                Navigation.PopModalAsync(false);
+                if (pageType == "MasterPage")
+                {
+                    var ParentPage = (MasterDetailPage)this.Parent;
+                    ParentPage.IsPresented = (ParentPage.IsPresented == false) ? true : false;
+                }
+                else
+                {
+                    Navigation.PopModalAsync(false);
+                }
+
             }
             catch (Exception ex)
             {

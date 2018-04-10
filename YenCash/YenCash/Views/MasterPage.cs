@@ -27,52 +27,56 @@ namespace YenCash
             }
             else if (pagename == "LotteryPage")
             {
-                pageSettings = new string[] { "Master" };
+                pageSettings = new string[] { "MasterPage" };
                 Detail = new Lottery(pageSettings) { BackgroundColor = Color.White };
             }
             else if(pagename == "QuizPage")
             {
-                Detail = new SelectQuizSubject(new string[] { "Master" }) { BackgroundColor = Color.White };
+                Detail = new SelectQuizSubject(new string[] { "MasterPage" }) { BackgroundColor = Color.White };
             }
             else if (pagename == "SurveyPage")
             {
-                Detail = new Survey(new string[] { "Master" }) { BackgroundColor = Color.White };
+                Detail = new Survey(new string[] { "MasterPage" }) { BackgroundColor = Color.White };
             }
             else if (pagename == "SocialisePage")
             {
-                //Detail = new HomePage() { BackgroundColor = Color.White };
+                //Detail = new HomePage(new string[] { "Master" }) { BackgroundColor = Color.White };
             }
             else if (pagename == "SudokuPage")
             {
-                //Detail = new HomePage() { BackgroundColor = Color.White };
+                //Detail = new HomePage(new string[] { "Master" }) { BackgroundColor = Color.White };
             }
             else if (pagename == "OffersPage")
             {
-                //Detail = new HomePage() { BackgroundColor = Color.White };
+                //Detail = new HomePage(new string[] { "Master" }) { BackgroundColor = Color.White };
             }
             else if (pagename == "WriteFeedbackPage")
             {
-                //Detail = new HomePage() { BackgroundColor = Color.White };
+                //Detail = new HomePage(new string[] { "Master" }) { BackgroundColor = Color.White };
             }
             else if (pagename == "FAQsPage")
             {
-                //Detail = new HomePage() { BackgroundColor = Color.White };
+                //Detail = new HomePage(new string[] { "Master" }) { BackgroundColor = Color.White };
             }
             else if (pagename == "TermsConditionsPage")
             {
-                //Detail = new HomePage() { BackgroundColor = Color.White };
+                //Detail = new HomePage(new string[] { "Master" }) { BackgroundColor = Color.White };
             }
             else if (pagename == "AboutUsPage")
             {
-                //Detail = new HomePage() { BackgroundColor = Color.White };
+                //Detail = new HomePage(new string[] { "Master" }) { BackgroundColor = Color.White };
             }
             else if (pagename == "ContactUsPage")
             {
-                //Detail = new HomePage() { BackgroundColor = Color.White };
+                //Detail = new HomePage(new string[] { "Master" }) { BackgroundColor = Color.White };
             }
             else if (pagename == "RateOurAppPage")
             {
-                //Detail = new HomePage() { BackgroundColor = Color.White };
+                //Detail = new HomePage(new string[] { "Master" }) { BackgroundColor = Color.White };
+            }
+            else if (pagename == "SettingsPage")
+            {
+                Detail = new UserSettings(new string[] { "MasterPage" }) { BackgroundColor = Color.White };
             }
             else
             {

@@ -79,7 +79,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                await Navigation.PushModalAsync(new UserSettings(), false);
+                await Navigation.PushModalAsync(new UserSettings(new string[] { "Push" }), false);
             }
             catch (Exception ex)
             {

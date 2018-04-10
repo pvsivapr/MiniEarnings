@@ -3,7 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
     xmlns:local="clr-namespace:YenCash;assembly=YenCash"
-    x:Class="YenCash.UserSettings">
+    x:Class="YenCash.UserSettings"
+    Title="SettingsPage" Icon="">
 
 
     
@@ -60,7 +61,7 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Image Source="MenuHamBurger.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                        <Image x:Name="imageMainNavigation" Source="MenuHamBurger.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NavigationTapped"/>
                             </Image.GestureRecognizers>
@@ -171,7 +172,7 @@
                                 </BoxView>
 
                                 <StackLayout Grid.Column="{x:StaticResource PaymentColumn}" Grid.Row="{x:StaticResource PaymentRow}" Style="{x:StaticResource stackIconHolder}">
-                                    <Image x:Name="imagePayment" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    <Image x:Name="imagePayment" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="Payments" Style="{x:StaticResource labelIconInfo}">
                                     </local:CustomLabel>
@@ -183,7 +184,7 @@
                                 </BoxView>
 
                                 <!--<StackLayout Grid.Column="{x:StaticResource FAQColumn}" Grid.Row="{x:StaticResource FAQRow}" Style="{x:StaticResource stackIconHolder}">
-                                    <Image x:Name="imageFAQ" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    <Image x:Name="imageFAQ" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="FAQ" Style="{x:StaticResource labelIconInfo}">
                                     </local:CustomLabel>
@@ -195,7 +196,7 @@
                                 </BoxView>-->
 
                                 <!--<StackLayout Grid.Column="{x:StaticResource AboutUsColumn}" Grid.Row="{x:StaticResource AboutUsRow}" Style="{x:StaticResource stackIconHolder}">
-                                    <Image x:Name="imageAboutUs" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    <Image x:Name="imageAboutUs" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="AboutUs" Style="{x:StaticResource labelIconInfo}">
                                     </local:CustomLabel>
@@ -207,7 +208,7 @@
                                 </BoxView>-->
 
                                 <!--<StackLayout Grid.Column="{x:StaticResource QuizColumn}" Grid.Row="{x:StaticResource QuizRow}" Style="{x:StaticResource stackIconHolder}">
-                                    <Image x:Name="imageQuiz" Source="RupeeOne.png" Style="{x:StaticResource imageIcon}">
+                                    <Image x:Name="imageQuiz" Source="RupeeTwo.png" Style="{x:StaticResource imageIcon}">
                                     </Image>
                                     <local:CustomLabel Text="Quiz" Style="{x:StaticResource labelIconInfo}">
                                     </local:CustomLabel>
