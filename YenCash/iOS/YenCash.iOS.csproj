@@ -186,6 +186,8 @@
     <BundleResource Include="Resources\Close.png" />
     <BundleResource Include="Resources\SearchBarIcon.png" />
     <BundleResource Include="Resources\UserProfileIcon.png" />
+    <BundleResource Include="Resources\YencashWhite.png" />
+    <BundleResource Include="Resources\YencashOrange.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets')" />

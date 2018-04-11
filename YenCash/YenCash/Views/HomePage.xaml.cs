@@ -14,7 +14,7 @@ namespace YenCash
             var height = (App.screenHeight * 1) / 100;
             var width = (App.screenWidth * 1) / 100;
 
-            pageTitle.FontSize = width * 6;
+            //pageTitle.FontSize = width * 6;
 
             var imageMetrices = width * 38;
 

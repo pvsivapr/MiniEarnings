@@ -1,5 +1,10 @@
 ﻿<Properties StartupConfiguration="{CA118C24-945C-4573-A7E8-5A8740EB83C4}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="YenCash/Views/HomePage.xaml.cs">
+    <Files>
+      <File FileName="YenCash/Views/HomePage.xaml" Line="71" Column="107" />
+      <File FileName="YenCash/Views/HomePage.xaml.cs" Line="6" Column="18" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -209,6 +209,8 @@
     <AndroidResource Include="Resources\drawable\Close.png" />
     <AndroidResource Include="Resources\drawable\SearchBarIcon.png" />
     <AndroidResource Include="Resources\drawable\UserProfileIcon.png" />
+    <AndroidResource Include="Resources\drawable\YencashWhite.png" />
+    <AndroidResource Include="Resources\drawable\YencashOrange.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\camera_crop_height.png" />
