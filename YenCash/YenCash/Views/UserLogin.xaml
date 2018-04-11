@@ -64,7 +64,13 @@
             <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Grid x:Name="gridDataInput" Padding="10,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                <Image Source="YencashOrange.png" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                            </StackLayout>
+                            
+                        <Grid x:Name="gridDataInput" Padding="10,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
@@ -106,6 +112,7 @@
                             </StackLayout>
                             
                         </Grid>
+                                </StackLayout>
                     </StackLayout>
                         <StackLayout x:Name="stackFooterButton" BackgroundColor="#40FFFFFF"  Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
                         <local:CustomLabel Text="Didn't have an account ?" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">

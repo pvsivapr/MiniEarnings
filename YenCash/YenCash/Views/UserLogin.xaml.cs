@@ -153,7 +153,8 @@ namespace YenCash
                 if(isValid)
                 {
                     //Navigation.PushModalAsync(new UserProfile());
-                    App.Current.MainPage = new HomePage();
+                    //App.Current.MainPage = new HomePage();
+                    App.Current.MainPage = new MasterPage("HomePage");
                 }
                 else
                 {

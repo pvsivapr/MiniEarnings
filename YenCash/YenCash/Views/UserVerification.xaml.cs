@@ -41,7 +41,8 @@ namespace YenCash
                 var isValid = await IsFormValid();
                 if (isValid)
                 {
-                    App.Current.MainPage = new HomePage();
+                    //App.Current.MainPage = new HomePage();
+                    App.Current.MainPage = new MasterPage("HomePage");
                 }
                 else
                 {

@@ -15,8 +15,12 @@ namespace YenCash
             var width = (App.screenWidth * 1) / 100;
 
             pageTitle.FontSize = width * 6;
+            //pageTitle.WidthRequest = width * 50;
 
             var imageMetrices = width * 10;
+
+            imageProfilePic.HeightRequest = (width * 20);
+            imageProfilePic.WidthRequest = (width * 20);
 
             stackMainHolder.HeightRequest = (height * 20);
 
