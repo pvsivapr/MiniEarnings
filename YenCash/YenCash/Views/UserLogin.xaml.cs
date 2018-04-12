@@ -149,7 +149,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
-                var isValid = await IsFormValid();
+                var isValid = true;//await IsFormValid();
                 if(isValid)
                 {
                     //Navigation.PushModalAsync(new UserProfile());

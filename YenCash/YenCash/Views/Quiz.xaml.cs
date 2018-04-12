@@ -79,6 +79,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
+                timeSpan.Stop();
                 await Navigation.PushModalAsync(new UserSettings(new string[] { "Push" }), false);
             }
             catch (Exception ex)
@@ -93,6 +94,7 @@ namespace YenCash
             //stackLoader.IsVisible = true;
             try
             {
+                timeSpan.Stop();
                 await Navigation.PushModalAsync(new UserLogin(), false);
             }
             catch (Exception ex)
@@ -376,6 +378,7 @@ namespace YenCash
                     var shallSubmitOption = await DisplayAlert("Alert", "Shall we submit your answers", "Ok", "Cancel");
                 if (shallSubmitOption)
                 {
+                    SubmitButton.IsVisible = false;
                     unAttemptedQuestions = 0;
                     foreach(var item in quizObject.questions_set)
                     {
@@ -407,7 +410,8 @@ namespace YenCash
                     if (shallReview)
                     {
                         isInReviewMode = true;
-                        SubmitButton.IsVisible = false;
+                        PreviousButton.IsVisible = false;
+                        NextButton.IsVisible = true;
                         GetQuestion(0);
                     }
                     else
