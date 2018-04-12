@@ -16,9 +16,9 @@ namespace YenCash
 
 
             //MainPage = new HomePage();
-            //MainPage = new TestView();
+            MainPage = new TestView(new string[]{ "Push" });
             //MainPage = new MasterPage("HomePage");
-            MainPage = new UserLogin();
+            //MainPage = new UserLogin();
             //MainPage = new UserSettings();
             //MainPage = new SharePage();
         }

@@ -8,8 +8,10 @@ namespace YenCash
 {
     public partial class TestView : ContentPage
     {
-        public ObservableCollection<QuizGroup> quizGroup;
+        //public ObservableCollection<QuizGroup> quizGroup;
+        public ObservableCollection<SubjectGroup> quizGroup;
         string pageType;
+        List<QuizTopic> quizTopics;
         public TestView(string[] pageSettings)
         {
             InitializeComponent();
@@ -23,8 +25,8 @@ namespace YenCash
                 imageMainNavigation.Source = ImageSource.FromFile("LeftArrowWhite.png");
             }
 
-            listQuizTopics.GroupHeaderTemplate = new DataTemplate(typeof(GroupUIView));
-            listQuizTopics.ItemTemplate = new DataTemplate(typeof(TopicUIView));
+            //listQuizTopics.GroupHeaderTemplate = new DataTemplate(typeof(GroupUIView));
+            //listQuizTopics.ItemTemplate = new DataTemplate(typeof(TopicUIView));
             GetListViewData();
 
             var height = (App.screenHeight * 1) / 100;
@@ -34,23 +36,23 @@ namespace YenCash
 
             var imageMetrices = width * 38;
 
-            listQuizTopics.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
-            {
-                try
-                {
-                    var selectedItem = ((ListView)sender).SelectedItem as QuizTopic;
-                    if (selectedItem == null)
-                    {
-                        return;
-                    }
-                    Navigation.PushModalAsync(new Quiz(selectedItem), false);
-                    ((ListView)sender).SelectedItem = null;
-                }
-                catch (Exception ex)
-                {
-                    PrintLog.PublishLog(ex);
-                }
-            };
+            //listQuizTopics.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
+            //{
+            //    try
+            //    {
+            //        var selectedItem = ((ListView)sender).SelectedItem as QuizTopic;
+            //        if (selectedItem == null)
+            //        {
+            //            return;
+            //        }
+            //        Navigation.PushModalAsync(new Quiz(selectedItem), false);
+            //        ((ListView)sender).SelectedItem = null;
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        PrintLog.PublishLog(ex);
+            //    }
+            //};
 
 
             //imageSudoku.HeightRequest = imageMetrices;
@@ -100,29 +102,60 @@ namespace YenCash
             try
             {
                 var searchValue = (e.NewTextValue).ToLower();
-                if (string.IsNullOrWhiteSpace(e.NewTextValue) && e.NewTextValue == "" && e.NewTextValue == null)
+
+                List<QuizTopic> quizsTopics = quizTopics.Where(X => X.TopicName.ToLower().Contains(searchValue)).ToList(); //).Distinct().OrderBy(s => s).ToList();
+
+                List<string> groupNames = quizsTopics.Select(X => X.GroupName).Distinct().OrderBy(s => s).ToList();
+                quizGroup = new ObservableCollection<SubjectGroup>();
+                foreach (var item in groupNames)
                 {
-                    listQuizTopics.ItemsSource = quizGroup;
-                }
-                else
-                {
-                    ObservableCollection<QuizGroup> listViewSearchedItems = new ObservableCollection<QuizGroup>();
-                    foreach (var sourceGroupItem in quizGroup)
+                    try
                     {
-                        var groupItemPresent = sourceGroupItem.Where(X => X.TopicName.ToLower().Contains(searchValue)).Any();
-                        if (groupItemPresent)
+                        List<Subject> subLists = new List<Subject>();
+                        foreach (var items in quizsTopics)
                         {
-                            var groupItem = new QuizGroup { GroupName = sourceGroupItem.GroupName };
-                            var topicsWithSearchValue = sourceGroupItem.Where(X => X.TopicName.ToLower().Contains(searchValue)).ToList();
-                            foreach (var topicItem in topicsWithSearchValue)
+                            if (item == items.GroupName)
                             {
-                                groupItem.Add(topicItem);
+                                subLists.Add(new Subject
+                                {
+                                    GroupName = item,
+                                    Name = items.TopicName
+                                });
                             }
-                            listViewSearchedItems.Add(groupItem);
                         }
+                        quizGroup.Add(new SubjectGroup { GPName = item, SubjectsList = subLists });
                     }
-                    listQuizTopics.ItemsSource = listViewSearchedItems;
+                    catch (Exception ex)
+                    {
+                        PrintLog.PublishLog(ex);
+                    }
                 }
+
+                GetLayouts(quizGroup);
+
+                //if (string.IsNullOrWhiteSpace(e.NewTextValue) && e.NewTextValue == "" && e.NewTextValue == null)
+                //{
+                //    listQuizTopics.ItemsSource = quizGroup;
+                //}
+                //else
+                //{
+                //    ObservableCollection<QuizGroup> listViewSearchedItems = new ObservableCollection<QuizGroup>();
+                //    foreach (var sourceGroupItem in quizGroup)
+                //    {
+                //        var groupItemPresent = sourceGroupItem.Where(X => X.TopicName.ToLower().Contains(searchValue)).Any();
+                //        if (groupItemPresent)
+                //        {
+                //            var groupItem = new QuizGroup { GroupName = sourceGroupItem.GroupName };
+                //            var topicsWithSearchValue = sourceGroupItem.Where(X => X.TopicName.ToLower().Contains(searchValue)).ToList();
+                //            foreach (var topicItem in topicsWithSearchValue)
+                //            {
+                //                groupItem.Add(topicItem);
+                //            }
+                //            listViewSearchedItems.Add(groupItem);
+                //        }
+                //    }
+                //    listQuizTopics.ItemsSource = listViewSearchedItems;
+                //}
             }
             catch (Exception ex)
             {
@@ -167,7 +200,7 @@ namespace YenCash
             try
             {
                 SearchHolder.IsVisible = false;
-                listQuizTopics.ItemsSource = quizGroup;
+                //listQuizTopics.ItemsSource = quizGroup;
             }
             catch (Exception ex)
             {
@@ -177,10 +210,8 @@ namespace YenCash
 
         public void GetListViewData()
         {
-            List<QuizTopic> quizTopics;
             try
             {
-
                 quizTopics = new List<QuizTopic>()
                 {
                     new QuizTopic(){GroupName="Group0", TopicName="Topic01"},
@@ -210,6 +241,34 @@ namespace YenCash
                 };
 
                 List<string> groupNames = quizTopics.Select(X => X.GroupName).Distinct().OrderBy(s => s).ToList();
+                quizGroup = new ObservableCollection<SubjectGroup>();
+                foreach(var item in groupNames)
+                {
+                    try
+                    {
+                        List<Subject> subLists = new List<Subject>();
+                        foreach (var items in quizTopics)
+                        {
+                            if (item == items.GroupName)
+                            {
+                                subLists.Add(new Subject
+                                {
+                                    GroupName = item,
+                                    Name = items.TopicName
+                                });
+                            }
+                        }
+                        quizGroup.Add(new SubjectGroup { GPName = item, SubjectsList = subLists });
+                    }
+                    catch(Exception ex)
+                    {
+                        PrintLog.PublishLog(ex);
+                    }
+                }
+
+                GetLayouts(quizGroup);
+
+                //List<string> groupNames = quizTopics.Select(X => X.GroupName).Distinct().OrderBy(s => s).ToList();
                 //quizGroup = new ObservableCollection<QuizGroup>();
                 //foreach (var selectedGroup in groupNames)
                 //{
@@ -232,6 +291,50 @@ namespace YenCash
                 PrintLog.PublishLog(ex);
             }
         }
+
+        public void GetLayouts(ObservableCollection<SubjectGroup> itemsGroup)
+        {
+            try
+            {
+                try
+                {
+                    if (stackListHolder.Children.Count > 0)
+                    {
+                        stackListHolder.Children.Clear();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    PrintLog.PublishLog(ex);
+                }
+                if(quizGroup != null && quizGroup.Count != 0)
+                {
+                    OpenCloseLayout layout = new OpenCloseLayout(itemsGroup)
+                    {
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        VerticalOptions = LayoutOptions.FillAndExpand
+                    };
+                    stackListHolder.Children.Add(layout);
+                }
+            }
+            catch(Exception ex)
+            {
+                PrintLog.PublishLog(ex);
+            }
+        }
+    }
+
+    public class SubjectGroup
+    {
+        public string GPName { get; set; }
+
+        public List<Subject> SubjectsList { get; set; }
+    }
+    public class Subject
+    {
+        public string GroupName { get; set; }
+
+        public string Name { get; set; }
     }
 
     //public class QuizGroup : ObservableCollection<QuizTopic>
@@ -246,13 +349,13 @@ namespace YenCash
 
     public class OpenCloseLayout : StackLayout
     {
-        public OpenCloseLayout(List<object> viewsList)
+        public OpenCloseLayout(ObservableCollection<SubjectGroup> viewsList)
         {
             foreach(var groupItem in viewsList)
             {
                 Label labelName = new Label()
                 {
-                    Text = "",//parameters[0],
+                    Text = groupItem.GPName,//"",//parameters[0],
                     TextColor = Color.Black,
                     HorizontalTextAlignment = TextAlignment.Start,
                     VerticalTextAlignment = TextAlignment.Center,
@@ -270,22 +373,22 @@ namespace YenCash
                     new ColumnDefinition{Width = new GridLength(1, GridUnitType.Star)},
                 },
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    VerticalOptions = LayoutOptions.CenterAndExpand
+                    VerticalOptions = LayoutOptions.Start
                 };
                 gridHolder.Children.Add(labelName, 0, 0);
                 StackLayout stackHolder = new StackLayout()
                 {
                     Children = { gridHolder },
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    VerticalOptions = LayoutOptions.CenterAndExpand
+                    VerticalOptions = LayoutOptions.Start
                 };
 
-                foreach (var item in viewsList)
+                foreach (var item in groupItem.SubjectsList)
                 {
 
                     Label labelChildName = new Label()
                     {
-                        Text = "",//parameters[0],
+                        Text = item.Name,//"",//parameters[0],
                         TextColor = Color.Black,
                         HorizontalTextAlignment = TextAlignment.Start,
                         VerticalTextAlignment = TextAlignment.Center,
@@ -305,7 +408,8 @@ namespace YenCash
                         HorizontalOptions = LayoutOptions.FillAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand
                     };
-                    gridHolder.Children.Add(labelName, 0, 0);
+                    gridChildHolder.Children.Add(labelChildName, 0, 0);
+                    stackHolder.Children.Add(gridChildHolder);
                 }
 
                 Children.Add(stackHolder);

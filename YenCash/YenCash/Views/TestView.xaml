@@ -93,8 +93,11 @@
             
             <StackLayout AbsoluteLayout.LayoutBounds="1,1,1,0.92" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <ScrollView Padding="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <ListView x:Name="listQuizTopics" IsGroupingEnabled="true" HasUnevenRows="true" SeparatorVisibility="Default" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    </ListView>
+                    <StackLayout x:Name="stackListHolder" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        
+                    </StackLayout>
+                    <!--<ListView x:Name="listQuizTopics" IsGroupingEnabled="true" HasUnevenRows="true" SeparatorVisibility="Default" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    </ListView>-->
                 </ScrollView>
                 
                 <StackLayout x:Name="stackFooterAdd" HeightRequest="50" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
