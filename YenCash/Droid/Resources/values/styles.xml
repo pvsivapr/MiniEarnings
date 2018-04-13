@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <style name="Theme.Splash"  parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">#f99d1c</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 	<style name="MyTheme" parent="MyTheme.Base">
 	</style>
   <!--<style name="Theme.Splash" parent="Theme.AppCompat.Light.NoActionBar">

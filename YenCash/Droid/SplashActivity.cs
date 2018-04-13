@@ -19,8 +19,13 @@ namespace YenCash.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Thread.Sleep(30); // Simulate a long loading process on app startup.
-            StartActivity(typeof(MainActivity));
+            SetContentView(Resource.Layout.SplashLayout);
+            System.Threading.Tasks.Task.Run(() => {
+                Thread.Sleep(2000);
+                StartActivity(typeof(MainActivity));
+            });
+            //Thread.Sleep(30); // Simulate a long loading process on app startup.
+            //StartActivity(typeof(MainActivity));
         }
     }
 }

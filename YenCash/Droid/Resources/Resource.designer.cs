@@ -3179,6 +3179,9 @@ namespace YenCash.Droid
 			// aapt resource value: 0x7f0b0056
 			public const int blocking = 2131427414;
 			
+			// aapt resource value: 0x7f0b00c9
+			public const int bodyLayout = 2131427529;
+			
 			// aapt resource value: 0x7f0b003c
 			public const int bottom = 2131427388;
 			
@@ -3220,6 +3223,9 @@ namespace YenCash.Droid
 			
 			// aapt resource value: 0x7f0b0091
 			public const int coordinator = 2131427473;
+			
+			// aapt resource value: 0x7f0b00cb
+			public const int ctrlActivityIndicator = 2131427531;
 			
 			// aapt resource value: 0x7f0b006c
 			public const int custom = 2131427436;
@@ -3290,6 +3296,12 @@ namespace YenCash.Droid
 			// aapt resource value: 0x7f0b0053
 			public const int @fixed = 2131427411;
 			
+			// aapt resource value: 0x7f0b00cc
+			public const int footerLayout = 2131427532;
+			
+			// aapt resource value: 0x7f0b00cd
+			public const int footerTextOne = 2131427533;
+			
 			// aapt resource value: 0x7f0b0057
 			public const int forever = 2131427415;
 			
@@ -3341,14 +3353,14 @@ namespace YenCash.Droid
 			// aapt resource value: 0x7f0b0060
 			public const int list_item = 2131427424;
 			
-			// aapt resource value: 0x7f0b00cd
-			public const int masked = 2131427533;
+			// aapt resource value: 0x7f0b00d2
+			public const int masked = 2131427538;
 			
 			// aapt resource value: 0x7f0b00bc
 			public const int media_actions = 2131427516;
 			
-			// aapt resource value: 0x7f0b00cb
-			public const int message = 2131427531;
+			// aapt resource value: 0x7f0b00d0
+			public const int message = 2131427536;
 			
 			// aapt resource value: 0x7f0b0030
 			public const int middle = 2131427376;
@@ -3566,8 +3578,8 @@ namespace YenCash.Droid
 			// aapt resource value: 0x7f0b0024
 			public const int showTitle = 2131427364;
 			
-			// aapt resource value: 0x7f0b00c9
-			public const int sliding_tabs = 2131427529;
+			// aapt resource value: 0x7f0b00ce
+			public const int sliding_tabs = 2131427534;
 			
 			// aapt resource value: 0x7f0b008e
 			public const int smallLabel = 2131427470;
@@ -3583,6 +3595,9 @@ namespace YenCash.Droid
 			
 			// aapt resource value: 0x7f0b0063
 			public const int spacer = 2131427427;
+			
+			// aapt resource value: 0x7f0b00ca
+			public const int splashLogo = 2131427530;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int split_action_bar = 2131427336;
@@ -3644,8 +3659,8 @@ namespace YenCash.Droid
 			// aapt resource value: 0x7f0b006e
 			public const int title_template = 2131427438;
 			
-			// aapt resource value: 0x7f0b00ca
-			public const int toolbar = 2131427530;
+			// aapt resource value: 0x7f0b00cf
+			public const int toolbar = 2131427535;
 			
 			// aapt resource value: 0x7f0b003d
 			public const int top = 2131427389;
@@ -3683,8 +3698,8 @@ namespace YenCash.Droid
 			// aapt resource value: 0x7f0b0016
 			public const int view_offset_helper = 2131427350;
 			
-			// aapt resource value: 0x7f0b00cc
-			public const int visible = 2131427532;
+			// aapt resource value: 0x7f0b00d1
+			public const int visible = 2131427537;
 			
 			// aapt resource value: 0x7f0b00ae
 			public const int volume_item_container = 2131427502;
@@ -3981,16 +3996,19 @@ namespace YenCash.Droid
 			public const int select_dialog_singlechoice_material = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int support_simple_spinner_dropdown_item = 2130903106;
+			public const int SplashLayout = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int Tabbar = 2130903107;
+			public const int support_simple_spinner_dropdown_item = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int Toolbar = 2130903108;
+			public const int Tabbar = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int tooltip = 2130903109;
+			public const int Toolbar = 2130903109;
+			
+			// aapt resource value: 0x7f030046
+			public const int tooltip = 2130903110;
 			
 			static Layout()
 			{
@@ -4249,8 +4267,8 @@ namespace YenCash.Droid
 			// aapt resource value: 0x7f090179
 			public const int Animation_Design_BottomSheetDialog = 2131296633;
 			
-			// aapt resource value: 0x7f09019c
-			public const int AppCompatDialogStyle = 2131296668;
+			// aapt resource value: 0x7f09019d
+			public const int AppCompatDialogStyle = 2131296669;
 			
 			// aapt resource value: 0x7f0900b2
 			public const int Base_AlertDialog_AppCompat = 2131296434;
@@ -4753,11 +4771,11 @@ namespace YenCash.Droid
 			// aapt resource value: 0x7f09000f
 			public const int CardView_Light = 2131296271;
 			
-			// aapt resource value: 0x7f09019a
-			public const int MyTheme = 2131296666;
-			
 			// aapt resource value: 0x7f09019b
-			public const int MyTheme_Base = 2131296667;
+			public const int MyTheme = 2131296667;
+			
+			// aapt resource value: 0x7f09019c
+			public const int MyTheme_Base = 2131296668;
 			
 			// aapt resource value: 0x7f09002e
 			public const int Platform_AppCompat = 2131296302;
@@ -5181,6 +5199,9 @@ namespace YenCash.Droid
 			
 			// aapt resource value: 0x7f090007
 			public const int Theme_MediaRouter_LightControlPanel = 2131296263;
+			
+			// aapt resource value: 0x7f09019a
+			public const int Theme_Splash = 2131296666;
 			
 			// aapt resource value: 0x7f090121
 			public const int ThemeOverlay_AppCompat = 2131296545;
