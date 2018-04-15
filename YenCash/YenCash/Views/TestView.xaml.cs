@@ -8,7 +8,6 @@ namespace YenCash
 {
     public partial class TestView : ContentPage
     {
-        //public ObservableCollection<QuizGroup> quizGroup;
         public ObservableCollection<SubjectGroup> quizGroup;
         string pageType;
         List<QuizTopic> quizTopics;
@@ -25,8 +24,6 @@ namespace YenCash
                 imageMainNavigation.Source = ImageSource.FromFile("LeftArrowWhite.png");
             }
 
-            //listQuizTopics.GroupHeaderTemplate = new DataTemplate(typeof(GroupUIView));
-            //listQuizTopics.ItemTemplate = new DataTemplate(typeof(TopicUIView));
             GetListViewData();
 
             var height = (App.screenHeight * 1) / 100;
@@ -35,30 +32,6 @@ namespace YenCash
             pageTitle.FontSize = width * 6;
 
             var imageMetrices = width * 38;
-
-            //listQuizTopics.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
-            //{
-            //    try
-            //    {
-            //        var selectedItem = ((ListView)sender).SelectedItem as QuizTopic;
-            //        if (selectedItem == null)
-            //        {
-            //            return;
-            //        }
-            //        Navigation.PushModalAsync(new Quiz(selectedItem), false);
-            //        ((ListView)sender).SelectedItem = null;
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        PrintLog.PublishLog(ex);
-            //    }
-            //};
-
-
-            //imageSudoku.HeightRequest = imageMetrices;
-            //imageSudoku.WidthRequest = imageMetrices;
-
-            //gridDataInput.HeightRequest = height * 25;
 
         }
 
@@ -330,6 +303,7 @@ namespace YenCash
 
         public List<Subject> SubjectsList { get; set; }
     }
+
     public class Subject
     {
         public string GroupName { get; set; }
@@ -337,20 +311,14 @@ namespace YenCash
         public string Name { get; set; }
     }
 
-    //public class QuizGroup : ObservableCollection<QuizTopic>
-    //{
-    //    public string GroupName { get; set; }
-    //}
-    //public class QuizTopic
-    //{
-    //    public string GroupName { get; set; }
-    //    public string TopicName { get; set; }
-    //}
-
     public class OpenCloseLayout : StackLayout
     {
         public OpenCloseLayout(ObservableCollection<SubjectGroup> viewsList)
         {
+            bool isLayoutOpen = false;
+            var height = (App.screenHeight * 1) / 100;
+            var width = (App.screenWidth * 1) / 100;
+
             foreach(var groupItem in viewsList)
             {
                 Label labelName = new Label()
@@ -362,26 +330,49 @@ namespace YenCash
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     VerticalOptions = LayoutOptions.CenterAndExpand
                 };
+                BoxView boxTouch = new BoxView()
+                {
+                    Color = Color.Transparent,
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    VerticalOptions = LayoutOptions.FillAndExpand
+                };
+                TapGestureRecognizer boxGroupTap = new TapGestureRecognizer();
+                boxGroupTap.NumberOfTapsRequired = 1;
+                boxTouch.GestureRecognizers.Add(boxGroupTap);
                 Grid gridHolder = new Grid()
                 {
                     RowDefinitions =
-                {
-                    new RowDefinition{Height = new GridLength(1, GridUnitType.Star)},
-                },
+                    {
+                        new RowDefinition{Height = new GridLength(1, GridUnitType.Star)},
+                    },
                     ColumnDefinitions =
-                {
-                    new ColumnDefinition{Width = new GridLength(1, GridUnitType.Star)},
-                },
+                    {
+                        new ColumnDefinition{Width = new GridLength(1, GridUnitType.Star)},
+                    },
+                    HeightRequest = height * 8,
+                    BackgroundColor = Color.Orange,
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     VerticalOptions = LayoutOptions.Start
                 };
                 gridHolder.Children.Add(labelName, 0, 0);
-                StackLayout stackHolder = new StackLayout()
+                gridHolder.Children.Add(boxTouch, 0, 0);
+                StackLayout stackChildrenHolder = new StackLayout()
                 {
-                    Children = { gridHolder },
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     VerticalOptions = LayoutOptions.Start
                 };
+                StackLayout stackHolder = new StackLayout()
+                {
+                    Children = { gridHolder, stackChildrenHolder },
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    VerticalOptions = LayoutOptions.Start
+                };
+                StackLayout stackChildHolder = new StackLayout()
+                {
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    VerticalOptions = LayoutOptions.Start
+                };
+
 
                 foreach (var item in groupItem.SubjectsList)
                 {
@@ -405,47 +396,67 @@ namespace YenCash
                         {
                             new ColumnDefinition{Width = new GridLength(1, GridUnitType.Star)},
                         },
+                        HeightRequest = height * 8,
                         HorizontalOptions = LayoutOptions.FillAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand
                     };
                     gridChildHolder.Children.Add(labelChildName, 0, 0);
-                    stackHolder.Children.Add(gridChildHolder);
+                    stackChildHolder.Children.Add(gridChildHolder);
                 }
-
+                boxGroupTap.Tapped += (object sender, EventArgs e) =>
+                {
+                    try
+                    {
+                        if(isLayoutOpen == false)
+                        {
+                            stackChildrenHolder.Children.Add(stackChildHolder);
+                            isLayoutOpen = true;
+                        }
+                        else
+                        {
+                            stackChildrenHolder.Children.Clear();
+                            isLayoutOpen = false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        PrintLog.PublishLog(ex);
+                    }
+                };
                 Children.Add(stackHolder);
 
             }
         }
     }
 
-    public class OpenCloseChildLayout : StackLayout
-    {
-        public OpenCloseChildLayout(string[] parameters)
-        {
-            Label labelName = new Label()
-            {
-                Text = parameters[0],
-                TextColor = Color.Black,
-                HorizontalTextAlignment = TextAlignment.Start,
-                VerticalTextAlignment = TextAlignment.Center,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
-            Grid gridHolder = new Grid()
-            {
-                RowDefinitions =
-                {
-                    new RowDefinition{Height = new GridLength(1, GridUnitType.Star)},
-                },
-                ColumnDefinitions =
-                {
-                    new ColumnDefinition{Width = new GridLength(1, GridUnitType.Star)},
-                },
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
-            gridHolder.Children.Add(labelName, 0, 0);
-            Children.Add(gridHolder);
-        }
-    }
+    //public class OpenCloseChildLayout : StackLayout
+    //{
+    //    public OpenCloseChildLayout(string[] parameters)
+    //    {
+    //        Label labelName = new Label()
+    //        {
+    //            Text = parameters[0],
+    //            TextColor = Color.Black,
+    //            HorizontalTextAlignment = TextAlignment.Start,
+    //            VerticalTextAlignment = TextAlignment.Center,
+    //            HorizontalOptions = LayoutOptions.FillAndExpand,
+    //            VerticalOptions = LayoutOptions.CenterAndExpand
+    //        };
+    //        Grid gridHolder = new Grid()
+    //        {
+    //            RowDefinitions =
+    //            {
+    //                new RowDefinition{Height = new GridLength(1, GridUnitType.Star)},
+    //            },
+    //            ColumnDefinitions =
+    //            {
+    //                new ColumnDefinition{Width = new GridLength(1, GridUnitType.Star)},
+    //            },
+    //            HorizontalOptions = LayoutOptions.FillAndExpand,
+    //            VerticalOptions = LayoutOptions.CenterAndExpand
+    //        };
+    //        gridHolder.Children.Add(labelName, 0, 0);
+    //        Children.Add(gridHolder);
+    //    }
+    //}
 }
